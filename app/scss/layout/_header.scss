@@ -1,9 +1,11 @@
 /* header scss file */
 body {
-    background-image: linear-gradient(to left, #fff, red);
+    background: url('../images/tomato.jpg') center center no-repeat;
 
     p {
-        color: blue;
+        color: orange;
         display: flex;
+        height: 100px;
+        font: 15px 'OpenSans';
     }
 }
