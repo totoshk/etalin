@@ -5,14 +5,34 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 let isProd = process.env.NODE_ENV === 'production';
 const cssDev = [
-                    'style-loader?sourceMap=true',
-                    'css-loader?-autoprefixer&sourceMap=true!postcss-loader',
+                    'style-loader?convertToAbsoluteUrls',
+                    'css-loader?sourceMap=true',
+                    'postcss-loader?sourceMap=true',
                     'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true'
                ];
 const cssProd = ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader?-autoprefixer!postcss-loader',
-                          'sass-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true,
+                                outputStyle: 'expanded',
+                                sourceMapContents: true,
+                            }
+                        },
                     ],
                     publicPath: './dist'
                 });
@@ -20,7 +40,7 @@ const cssProd = ExtractTextPlugin.extract({
 let cssConfig = isProd ? cssProd : cssDev;
 module.exports = {
     entry: './app/index.js',
-    devtool: 'cheap-module-source-map',
+    // devtool: 'inline-source-map',
     output: {
         filename: 'index_bundle.js',
         path: path.resolve(__dirname, 'dist')

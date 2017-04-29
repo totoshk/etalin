@@ -2,10 +2,34 @@
 body {
     background: url('../images/tomato.jpg') center center no-repeat;
 
+    @media (min-width: 768px) {
+        font-size: 20px;
+    }
+
+    @media (min-width: 1235px) {
+        font-size: 36px;
+    }
+
     p {
         color: orange;
         display: flex;
         height: 100px;
         font: 15px 'OpenSans';
+
+        @media (min-width: 768px) {
+            color: red;
+        }
+
+        @media (min-width: 1235px) {
+            color: blue;
+        }
+
+        img {
+            max-width: 100px;
+        }
     }
+}
+
+img {
+    max-width: 300px;
 }
