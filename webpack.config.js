@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 let isProd = process.env.NODE_ENV === 'production';
+console.log('Node env is', process.env.NODE_ENV, 'production');
 const cssDev = [
                     'style-loader?convertToAbsoluteUrls',
                     'css-loader?sourceMap=true',
