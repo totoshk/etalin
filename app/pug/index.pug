@@ -11,6 +11,7 @@ body
     section.header
         .owl-carousel.owl-header-carousel
             .owl-slide
+            .owl-slide
         .wrapper
             nav.header-nav.clearfix
                 .container
@@ -103,22 +104,83 @@ body
         .container
             h2.section-title Калькулятор
             .section-stripe
+            form.calculator-form.clearfix
+                .calculator-form--left
+                    .calculator__header Какие светильники вы используете сейчас?
+                    p.calculator-form__label Тип лампы
+                    select.calculator-form__field.calculator-form__field-select
+                        option(disbled) Выбрать из списка
+                        option(value="Люминисцентная") Люминисцентная
+                        option(value="Накаливания") Накаливания
+                    p.calculator-form__label Тип светильника
+                    select.calculator-form__field.calculator-form__field-select
+                        option(disbled) Выбрать из списка
+                        option(value="Вариант ответа 1") Вариант ответа 1
+                        option(value="Вариант ответа 2") Вариант ответа 2
+                    p.calculator-form__label.calculator-form__field-image-label.mobile-hide Тип светильника
+                    .calculator-form__field.calculator-form__field-image
+                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                    p.calculator-form__label Мощность лампы, Вт
+                    select.calculator-form__field.calculator-form__field-select
+                        option(disbled) Выбрать из списка
+                        option(value="18") 18
+                        option(value="112") 112
+                        option(value="75") 75
+                    p.calculator-form__label Кол-во светильников, шт
+                    input(type="text" name="power" placeholder="Введите значение").calculator-form__field.calculator-form__field-text
+                    p.calculator-form__label Тариф, тенге/кВт
+                    input(type="text" name="price" placeholder="Введите значение").calculator-form__field.calculator-form__field-text
+
+                .calculator-form--right
+                    .calculator__header Выберите вариант замены на LED освещение
+                    p.calculator-form__label Тип светильника
+                    .calculator-form__field.calculator-form__options
+                        .calculator-form__options-title Выбрать из списка
+                        .calculator-form__options-item.clearfix
+                            .options-item__name Прожектор 25-10
+                            .options-item__image
+                                img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                        .calculator-form__options-item.clearfix
+                            .options-item__name Прожектор 25-10
+                            .options-item__image
+                                img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                        .calculator-form__options-item.clearfix
+                            .options-item__name Прожектор 25-10
+                            .options-item__image
+                                img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                    p.calculator-form__label Артикул
+                    .calculator-form__field.calculator-form__field-code
+                    input(type="submit" value="Рассчитать").btn.calculator__form-btn
+            
             .btn.calculator__btn Заказать консультацию
+
+            include includes/calculator.pug
+            
+            
     section#partners.partners
         .container
             h2.section-title Партнеры
             .section-stripe
-            .owl-carousel.owl-theme
-                
-                img(data-src="../images/partners/ramstore.jpg").owl-lazy
-                img(data-src="../images/partners/12_mesjacev.jpg").owl-lazy
-                img(data-src="../images/partners/kma.jpg").owl-lazy
-                img(data-src="../images/partners/alser-logo.png").owl-lazy
-                img(data-src="../images/partners/220-volt-logo.png").owl-lazy
-                img(data-src="../images/partners/Bi-group.png").owl-lazy
-                img(data-src="../images/partners/strojmart.jpg").owl-lazy
-                img(data-src="../images/partners/Line-Logo-1.jpg").owl-lazy
-                img(data-src="../images/partners/ElCom_all_logos.png").owl-lazy
+            .owl-carousel.owl-logo-carousel
+                .logo-item
+                    img(src="../images/partners/12_mesjacev.jpg")
+                .logo-item
+                    img(src="../images/partners/kma.jpg")
+                .logo-item
+                    img(src="../images/partners/ramstore.jpg")
+                .logo-item
+                    img(src="../images/partners/alser-logo.png")
+                .logo-item
+                    img(src="../images/partners/220-volt-logo.png")
+                .logo-item
+                    img(src="../images/partners/Bi-group.png")
+                .logo-item
+                    img(src="../images/partners/strojmart.jpg")
+                .logo-item
+                    img(src="../images/partners/Line-Logo-1.jpg")
+                .logo-item
+                    img(src="../images/partners/ElCom_all_logos.png")
+            .btn.partners__btn Портфолио
     section#contacts.contacts
         .container
             h2.section-title Контакты

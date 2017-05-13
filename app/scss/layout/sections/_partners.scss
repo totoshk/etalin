@@ -1,13 +1,31 @@
 .partners {
 
-    &__logo-item {
-        
+    .logo-item {
+        width: 137px;
+        height: 220px;
+        line-height: 220px;
+
+        @media(min-width: $tablet-min) {
+            width: 172px;
+        }
 
         img {
+            vertical-align: middle;
+            display: inline-block;
             -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.1);
             -moz-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.1);
             box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.1); 
             width: 100%;
         }
     }
+
+    .owl-dots {
+        margin-top: 20px;
+    }
 }
+
+.owl-logo-carousel {
+    z-index: 0;
+    margin-bottom: 30px;
+}
+
