@@ -1,7 +1,12 @@
+@import "base/variables";
 @import "base/typography";
-@import "layout/header";
-@import "layout/footer";
+@import "fontawesome/font-awesome";
 
-body {
-    background: red;
-}
+@import "layout/common";
+@import "layout/sections/header";
+@import "layout/sections/about-company";
+@import "layout/sections/technology";
+@import "layout/sections/calculator";
+@import "layout/sections/partners";
+@import "layout/sections/contacts";
+@import "layout/sections/footer";
