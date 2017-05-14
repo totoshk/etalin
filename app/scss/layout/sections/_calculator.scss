@@ -18,7 +18,6 @@
 
     &-form {
         text-align: center;
-        position: relative;
 
         @media(min-width: $desktop-min) {
             text-align: left
@@ -32,10 +31,11 @@
             @media(min-width: $tablet-min) {
                 font-size: 30px;
                 margin-bottom: 11px;
+				text-align: center;
             }
 
             @media(min-width: $desktop-min) {
-                // margin-left: 109px;
+                width: 375px;
             }
         }
         &__field {
@@ -57,6 +57,12 @@
                 outline: none;
                 color: #000;
             }
+
+			&-select {
+				option {
+					width: 370px;
+				}
+			}
 
             @media(min-width: $tablet-min) {
                 width: 375px;
@@ -81,19 +87,23 @@
                     vertical-align: middle;
                 }
 
+				&.empty {
+					margin: 0;
+					padding: 0;
+					border: 0;
+				}
+
                 @media(min-width: $tablet-min) {
                     margin-bottom: 29px;
                 }
                 @media(min-width: $desktop-min) {
-                    position: absolute;
-                    top: 138px;
-                    left: 34%;
+
                     margin-left: 0;
 
                     &-label {
                         position: absolute;
                         top: 105px;
-                        left: 40%;
+                        left: 34%;
                         margin-left: 0;
                     }
                 }
@@ -101,15 +111,24 @@
 
             &-code {
                 height:52px;
-                margin: 15px auto 76px;
+                margin: 15px auto 64px;
+
+				@media(min-width: $desktop-min) {
+					margin-bottom: 38px;
+				}
             }
         }
 
         &__options {
             margin: 0 auto 25px;
+			position: relative;
+
+			@media(min-width: $tablet-min) {
+				margin-bottom: 26px;
+			}
 
             &-title {
-                margin-bottom: 15px;
+				text-align: left;
             }
 
             &-item {
@@ -122,6 +141,31 @@
                     border-bottom: 0;
                 }
             }
+
+			&-dropdown {
+				display: none;
+				position: absolute;
+				z-index: 1;
+				top: 49px;
+				left: -2px;
+				border-top: 0;
+				border-radius: 0 0 10px 10px;
+
+				@media(min-width: $desktop-min) {
+					top: 53px;
+				}
+			}
+			&:hover .calculator-form__options-dropdown{
+				display: block;
+			}
+			&:hover {
+				border-bottom-color: #fff;
+				border-radius: 10px 10px 0 0;
+			}
+			&-selected:hover {
+				border-bottom-color: #99cc33;
+				border-radius: 10px;
+			}
         }
 
         &--left {
@@ -191,13 +235,77 @@
                 float: right;
             }
         }
+
+		&__price {
+			float: right;
+			text-align: right;
+			background:  #76bd2a;
+			padding: 10px;
+			font-weight: bold;
+		}
     }
 }
 
+@media(min-width: $desktop-min) {
+	.calculator__form-group {
+		&--left {
+			float: left;
+		}
 
+		&--right {
+			float: right;
+			margin-right: 23px;
+		}
+	}
+}
 
+.calculator__results {
+	margin-bottom: 66px;
 
+	@media(min-width: $tablet-min) {
+		margin-bottom: 33px;
+	}
 
+	&-title {
+		text-align: left;
+		color: #003366;
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 25px;
+		margin-bottom: 15px;
+
+		@media(min-width: $tablet-min) {
+			font-size: 24px;
+			line-height: 32px;
+			float: left;
+			width: 59%;
+			margin-bottom: 23px;
+		}
+	}
+
+	&-field {
+		color: #003366;
+		font-weight: bold;
+		font-size: 20px;
+		border: 2px solid #99cc33;
+		border-radius: 10px;
+		margin-bottom: 36px;
+		padding: 14px 11px;
+		
+
+		@media(min-width: $tablet-min) {
+			float: right;
+			width: 30%;
+			margin-top: 10px;
+			font-size: 24px;
+			padding: 9px 11px 14px;
+		}
+
+		@media(min-width: $desktop-min) {
+			margin-bottom: 25px;
+		}
+	}
+}
 
 
 

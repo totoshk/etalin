@@ -41,7 +41,7 @@ body
                             span +7 727 356 11 05
                     .header-contacts__item.header-contacts__callback
                         <i class="fa fa-volume-control-phone" aria-hidden="true"></i> 
-                        span Заказать обратный звонок
+                        a(href="#")#callback Заказать обратный звонок
             .header-content
                 .container
                     a(href="#" title="").circle-container
@@ -52,6 +52,15 @@ body
                         .header-content__tagline Светодиодное освещение - это выгодные и надежные инвестиции в Ваш <br/> бизнес!
                     a(href="#" title="").btn.header-content__btn Расчет окупаемости
                     .header-content__description Узнайте свою выгоду от перехода на LED и начните экономить уже сегодня!
+            .popup-form
+                .container
+                    h2.popup-form__title Заказать звонок
+                    <i class="fa fa-times popup-close" aria-hidden="true"></i>
+                    .section-stripe
+                    form(method="post").contacts__callback.popup-form__callback.clearfix
+                        input(type="text" name="Name" placeholder="Имя" required pattern="[A-Za-zА-Яа-я]{3,} *[A-Za-zА-Яа-я]* *[A-Za-zА-Яа-я]*").contacts__callback-field
+                        input(type="text" name="Phone" placeholder="Телефон" required pattern="^\+((8|[0-9])[\- ]?)?([\- ]?)?[\d\- ]{11,}$").contacts__callback-field
+                        input(type="submit" value="Подтвердить").btn.popup-form__btn
 
     
         
@@ -107,19 +116,34 @@ body
             form.calculator-form.clearfix
                 .calculator-form--left
                     .calculator__header Какие светильники вы используете сейчас?
-                    p.calculator-form__label Тип лампы
-                    select.calculator-form__field.calculator-form__field-select
-                        option(disbled) Выбрать из списка
-                        option(value="Люминисцентная") Люминисцентная
-                        option(value="Накаливания") Накаливания
-                    p.calculator-form__label Тип светильника
-                    select.calculator-form__field.calculator-form__field-select
-                        option(disbled) Выбрать из списка
-                        option(value="Вариант ответа 1") Вариант ответа 1
-                        option(value="Вариант ответа 2") Вариант ответа 2
-                    p.calculator-form__label.calculator-form__field-image-label.mobile-hide Тип светильника
-                    .calculator-form__field.calculator-form__field-image
-                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                    .calculator__wpapper
+                        .calculator__form-group--left
+                            p.calculator-form__label Тип лампы
+                            select.calculator-form__field.calculator-form__field-select(name="tisBulbType")
+                                option(disbled) Выбрать из списка
+                                option(value="Люминисцентная") Люминисцентная
+                                option(value="Накаливания") Накаливания
+                        
+                        .calculator__form-group.calculator__form-group--right
+                            p.calculator-form__label Тип светильника
+                            //- .calculator-form__field.calculator-form__field-image
+                            //-     img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                            .calculator-form__field.calculator-form__options
+                                .calculator-form__options-title Выбрать из списка
+                                .calculator-form__field.calculator-form__options-dropdown
+                                    .calculator-form__options-item.clearfix
+                                        .options-item__name Прожектор 25-10
+                                        .options-item__image
+                                            img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                                        .options-item__price 27000 тг
+                                    .calculator-form__options-item.clearfix
+                                        .options-item__name Прожектор 25-10
+                                        .options-item__image
+                                            img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                                    .calculator-form__options-item.clearfix
+                                        .options-item__name Прожектор 25-10
+                                        .options-item__image
+                                            img(src="../images/calculator/lpo-four-small.png" alt="lampa")
                     p.calculator-form__label Мощность лампы, Вт
                     select.calculator-form__field.calculator-form__field-select
                         option(disbled) Выбрать из списка
@@ -134,27 +158,45 @@ body
                 .calculator-form--right
                     .calculator__header Выберите вариант замены на LED освещение
                     p.calculator-form__label Тип светильника
-                    .calculator-form__field.calculator-form__options
-                        .calculator-form__options-title Выбрать из списка
-                        .calculator-form__options-item.clearfix
-                            .options-item__name Прожектор 25-10
-                            .options-item__image
-                                img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                        .calculator-form__options-item.clearfix
-                            .options-item__name Прожектор 25-10
-                            .options-item__image
-                                img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                        .calculator-form__options-item.clearfix
-                            .options-item__name Прожектор 25-10
-                            .options-item__image
-                                img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                    p.calculator-form__label Артикул
-                    .calculator-form__field.calculator-form__field-code
+                    .calculator__form-group
+                        .calculator-form__field.calculator-form__options.calculator-form__options-selected.clearfix
+                            .calculator-form__options-item.selected.clearfix
+                                .options-item__name Прожектор 25-10
+                                .options-item__image
+                                    img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                                .options-item__price 27000 тг
+                        .calculator-form__field.calculator-form__options.u-hidden
+                            .calculator-form__options-title Выбрать из списка
+                            .calculator-form__field.calculator-form__options-dropdown
+                                .calculator-form__options-item.clearfix
+                                    .options-item__name Прожектор 25-10
+                                    .options-item__image
+                                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                                    .options-item__price 27000 тг
+                                .calculator-form__options-item.clearfix
+                                    .options-item__name Прожектор 25-10
+                                    .options-item__image
+                                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                                .calculator-form__options-item.clearfix
+                                    .options-item__name Прожектор 25-10
+                                    .options-item__image
+                                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                        p.calculator-form__label Артикул
+                    .calculator-form__field.calculator-form__field-code Прожектор 25-10
                     input(type="submit" value="Рассчитать").btn.calculator__form-btn
+            
+                .calculator__results.clearfix
+                    .calculator__results-title.
+                        При переходе на светодиодное освещение ТМ Etalin, на электроэнергии вы сэкономите
+                    .calculator__results-field.calculator__results-economy 370 500 тг
+                    .calculator__results-title.
+                        Светодиодные светильники Etalin окупятся через
+                    .calculator__results-field.calculator__results-month 7 месяцев
+            
             
             .btn.calculator__btn Заказать консультацию
 
-            include includes/calculator.pug
+            //- include includes/calculator.pug
             
             
     section#partners.partners
@@ -201,9 +243,9 @@ body
                 <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aae59924baef1528d398083a2e12d3265c66f092fb46c9deb3aabceac7f6bd4b5&amp;width=100%&amp;height=100%&amp;lang=ru_UA&amp;scroll=true"></script>
             form(method="post").contacts__callback.clearfix
                 p Если у вас остались вопросы, вы можете оставить сообщение и наши специалисты свяжутся с вами.
-                input(type="text" name="Name" placeholder="Имя").contacts__callback-field
-                input(type="text" name="Phone" placeholder="Телефон").contacts__callback-field
-                input(type="text" name="Email" placeholder="E-mail").contacts__callback-field
+                input(type="text" name="Name" placeholder="Имя" required pattern="[A-Za-zА-Яа-я]{3,} *[A-Za-zА-Яа-я]* *[A-Za-zА-Яа-я]*").contacts__callback-field
+                input(type="text" name="Phone" placeholder="Телефон" required pattern="^\+((8|[0-9])[\- ]?)?([\- ]?)?[\d\- ]{11,}$").contacts__callback-field
+                input(type="text" name="Email" placeholder="E-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$").contacts__callback-field
                 textarea(rows="10" cols="25" name="Message" placeholder="Сообщение").contacts__callback-field
                 input(type="submit" value="Отправить").btn.contacts__callback-btn
 

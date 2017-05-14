@@ -40,6 +40,18 @@
     width: 100%;
     padding: 21px 0;
 
+    
+    @media (min-width: $tablet-min) {
+        &.is-hidden {
+            top: -60px;
+            transition: top .35s ease;
+
+            &:hover {
+                top: 0;
+                transition: top .35s ease;
+            }
+        }
+    }
 
     &__menu {
         display: none;
@@ -232,9 +244,13 @@
     &__callback {
         margin-right: 18px;
 
-        & span {
+        & a {
             font-size: 16px;
             border-bottom: 2px solid #003366;
+
+            @media(min-width: $desktop-min) {
+                font-size: 18px;
+            }
         }
         @media(min-width: $tablet-min) {
             float: right;
@@ -362,5 +378,75 @@
             line-height: 33px;
             padding: 5px 5px 10px;
         }
+    }
+}
+
+.popup-form {
+    position: fixed;
+    z-index: 10;
+    width: 290px;
+    height: 360px;
+    top: 50%;
+	left: 50%;
+	margin-top: -180px;
+	margin-left: -145px;
+    padding: 45px 20px 20px;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 11px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 11px 0px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 11px 0px rgba(0,0,0,0.5);
+    display: none;
+    opacity: 0;
+
+    &__title {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    & .popup-form__btn {
+        background: #fff;
+        color: #003366;
+        border: 2px solid #003366;
+        width: 100%;
+        padding: 10px;
+        font: bold 20px "Century Gothic", sans-serif;
+        cursor: pointer;
+    }
+    
+    & .popup-form__callback {
+        width: 100%;
+        clear: both;
+    }
+
+    @media(min-width: $tablet-min) {
+        width: 596px;
+        height: 446px;
+        margin-left: -298px;
+        margin-top: -223px;
+        padding-top: 70px;
+
+        &__title {
+            font-size: 36px;
+        }
+    }
+
+    @media(min-width: $desktop-min) {
+        .section-stripe {
+            margin-bottom: 40px;
+        }
+    }
+}
+.popup-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    color: #d4d4d4;
+
+    @media(min-width: $tablet-min) {
+        top: 20px;
+        right: 25px;
+        font-size: 25px;
     }
 }
