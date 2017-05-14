@@ -35,7 +35,7 @@ const cssProd = ExtractTextPlugin.extract({
                             }
                         },
                     ],
-                    publicPath: './dist'
+                    publicPath: ''
                 });
 
 let cssConfig = isProd ? cssProd : cssDev;
