@@ -12,7 +12,7 @@
             font-size: 30px;
         }
         @media(min-width: $desktop-min) {
-            width: 41%;
+            font-size: 27px;
         }
     }
 
@@ -183,10 +183,10 @@
                 float: right;
                 width: 32%;
 
-                & .calculator__header {
-                    margin-left: -100px;
-                    width: 405px;
-                }
+                // & .calculator__header {
+                //     margin-left: -100px;
+                //     width: 405px;
+                // }
             }
         }
     }
@@ -311,6 +311,83 @@
 
 		@media(min-width: $desktop-min) {
 			margin-bottom: 25px;
+		}
+	}
+}
+
+$select-color: #ddd;
+$select-background: #fff;
+$select-width: 220px;
+$select-height: 40px;
+$select-border: 2px solid #99cc33;
+
+
+.select {
+	cursor: pointer;
+	position: relative;
+	width: 100%;
+	height: $select-height;
+	text-align: left;
+
+	@media (min-width: $tablet-min) {
+		width: $select-width;
+	}
+}
+.select-styled {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 8px 15px;
+  border: $select-border;
+  border-radius: 6px;
+  transition: all 0.2s ease-in;
+
+  &:after {
+    content:"";
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-color: $select-color transparent transparent transparent;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+  }
+  &:hover {
+    
+  }
+  &:active, &.active {
+    
+    &:after {
+      top: 9px;
+      border-color: transparent transparent $select-color transparent;
+    }
+  }
+}
+
+.select-options {
+	background-color: #fff;
+	position: absolute;
+	top: 100%;
+	// top: calc(100% - 2px);
+    right: 0;
+    left: 0;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+	li {
+		margin: 0;
+		padding: 12px 0;
+		text-indent: 15px;
+		transition: all 0.15s ease-in;
+		border: 1px solid #99cc33;
+		border-top: 0;
+
+		&:hover {
+			background-color: rgba(0, 51, 102, 0.2);
 		}
 	}
 }

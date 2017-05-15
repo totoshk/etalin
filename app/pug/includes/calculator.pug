@@ -1,432 +1,69 @@
-form.cl_form.clearfix(name='cl_form')
-	// calculator
-	.all-block-calc
-		.center-all-block-calc.clearfix
-			.left-all-block-calc
-				.left-block-calc
-					span.header-left-block-calc
-						| Какие светильники вы используете сейчас?
-					.one-of-left-block-calc.right
-						span.header-one-of-select
-							| Тип светильника
-						input.disabled-input(disabled='disabled', type='', name='', value='Выберите тип лампы')
-						.block-select-one.lum
-							.select-registration-calc
-								#total-calc
-									span
-										| Выбрать из списка
-							.all-block-option-calc
-								.scroll-pane-calc
-									.content-select-calc
-										// 
-										.points-count-calc.focus
-											span.type-lighting Прожектор МГЛ-100
-											span.power-lamp 100
-											span.type-lamp Металлогалогенная
-											// 
-											span.power-lamp-hidden 100
-											span.number-lamp-hidden 1
-											// <span class="power-lighting-hidden">36</span>
-											span.time-job-hidden 8000
-											// <span class="number-change-hidden">15</span>
-											span.cost-lamp-lighting-hidden 2300
-											// 
-											img.set-img(src='../images/calculator/mgl.jpg', align='not-image')
-										// 
-										.separator
-										// 
-										.points-count-calc.focus
-											span.type-lighting Прожектор МГЛ-150
-											span.power-lamp 150
-											span.type-lamp Металлогалогенная
-											// 
-											span.power-lamp-hidden 150
-											span.number-lamp-hidden 1
-											// <span class="power-lighting-hidden">72</span>
-											span.time-job-hidden 8000
-											// <span class="number-change-hidden">15</span>
-											span.cost-lamp-lighting-hidden 2500
-											// 
-											img.set-img(src='../images/calculator/mgl.jpg', align='not-image')
-										// 
-										.separator
-										// 
-										.points-count-calc.focus
-											span.type-lighting Прожектор МГЛ-250
-											span.power-lamp 250
-											span.type-lamp Металлогалогенная
-											// 
-											span.power-lamp-hidden 250
-											span.number-lamp-hidden 1
-											// <span class="power-lighting-hidden">72</span>
-											span.time-job-hidden 8000
-											// <span class="number-change-hidden">15</span>
-											span.cost-lamp-lighting-hidden 3500
-											// 
-											img.set-img(src='../images/calculator/mgl.jpg', align='not-image')
-										// 
-						// 
-						// 
-						.block-select-two
-							.select-registration-calc-two
-								#total-calc-two
-									span
-										| Выбрать из списка
-							.all-block-option-calc-two
-								.scroll-pane-calc-two
-									.content-select-calc-two
-										// 
-										.points-count-calc-two.focus
-											span.type-lighting РКУ 250
-											span.power-lamp 250
-											span.type-lamp ДНАТ
-											// 
-											span.power-lamp-hidden 250
-											span.number-lamp-hidden 1
-											// <span class="power-lighting-hidden">36</span>
-											span.time-job-hidden 12000
-											// <span class="number-change-hidden">15</span>
-											span.cost-lamp-lighting-hidden 1000
-											// 
-											img.set-img(src='../images/calculator/rku.png', align='not-image')
-										// 
-										.separator
-										// 
-										.points-count-calc-two.focus
-											span.type-lighting РКУ 400
-											span.power-lamp 400
-											span.type-lamp ДНАТ
-											// 
-											span.power-lamp-hidden 400
-											span.number-lamp-hidden 1
-											// <span class="power-lighting-hidden">36</span>
-											span.time-job-hidden 12000
-											// <span class="number-change-hidden">15</span>
-											span.cost-lamp-lighting-hidden 2000
-											// 
-											img.set-img(src='../images/calculator/rku.png', align='not-image')
-										// 
-						// 
-					// 
-					// 
-					// 
-					// 
-					// 
-					// 
-					.one-of-left-block-calc
-						// 
-						.block-one-of-select.one
-							span.header-one-of-select
-								| Тип лампы
-							// block-select-type-lamp
-							.block-select-type-lamp
-								.select-type-lamp
-									#type-lamp
-										span
-											| Выбрать из списка
-								.all-block-option-type-lamp
-									.scroll-pane-type-lamp
-										.content-select-type-lamp
-											.points-count-type-lamp.focus
-												span.type-lamp-lum Металлогалогенная
-											.points-count-type-lamp.focus
-												span.type-lamp-shine ДНАТ
-							// block-select-type-lamp
-						// 
-						// 
-						.block-one-of-select.two
-							span.header-one-of-select
-								| Мощность лампы, Вт
-							// block-select-type-lamp
-							.block-select-power-lamp
-								.select-power-lamp
-									#power-lamp
-										span
-											| Выбрать из списка
-								.all-block-option-power-lamp
-									.scroll-pane-power-lamp
-										.content-select-power-lamp
-											.points-count-power-lamp.focus
-												span.power-lamp-one 100
-											.points-count-power-lamp.focus
-												span.power-lamp-two 150
-											.points-count-power-lamp.focus
-												span.power-lamp-three 250
-											.points-count-power-lamp.focus
-												span.power-lamp-four 400
-							// block-select-type-lamp
-							// <input readonly="readonly" type="text" id="total-power-lamp"  name="total_power_lamp" value="Выбрать из списка">
-						// 
-						// 
-						.block-one-of-select
-							span.header-one-of-select
-								| Количество светильников, шт.
-							input#number-lightiing(type='text', name='number_lightiing', placeholder='Введите значение')
-						// 
-						// 
-						.block-one-of-select
-							span.header-one-of-select
-								| Тариф на электроенергию
-							input#tariff-for-electro(type='text', name='tariff_for_electro', placeholder='Введите значение')
-						// 
-						// 
-						input#total-type-lamp(readonly='readonly', type='text', name='total_type_lamp')
-						// 
-						.hidden-input
-							// 
-							input#total-type-lighting-hidden(readonly='readonly', type='', name='total_type_lighting_hidden')
-							input#total-power-lamp-hidden(readonly='readonly', type='', name='total_power_lamp_hidden')
-							input#total-number-lamp-hidden(readonly='readonly', type='', name='total_number_lamp_hidden')
-							input#total-power-lighting-hidden(readonly='readonly', type='', name='total_power_lighting_hidden')
-							input#total-time-job-hidden(readonly='readonly', type='', name='total_time_job_hidden')
-							input#total-number-change-hidden(readonly='readonly', type='', name='total_number_change_hidden')
-							input#total-cost-lamp-lighting-hidden(readonly='readonly', type='', name='total_cost_lamp_lighting_hidden')
-							input#total-cost-lamp-lighting-all-time-hidden(readonly='readonly', type='', name='total_cost_lamp_lighting_all_time_hidden')
-							input#tariff-for-all-electro-hidden(readonly='readonly', type='', name='tariff_for_all_electro_hidden')
-							// 
-							input#total-power-lighting-led-hidden(readonly='readonly', type='', name='total_power_lighting_led_hidden')
-							input#total-time-job-led-hidden(readonly='readonly', type='', name='total_time_job_led_hidden')
-							input#total-cost-lamp-lighting-led-hidden(readonly='readonly', type='', name='total_cost_lamp_lighting_led_hidden')
-							// 
-							input#cost-all-led-hidden(readonly='readonly', type='', name='cost_all_led_hidden')
-							input#tariff-for-electro-led-hidden(readonly='readonly', type='', name='tariff_for_electro_led_hidden')
-							// <input readonly="readonly" type="" id="economy-led-hidden"  name="economy_led_hidden">
-							input#all-economy-led-hidden(readonly='readonly', type='', name='all_economy_led_hidden')
-							input#month-job-led-hidden(readonly='readonly', type='', name='month_job_led_hidden')
-							// <input readonly="readonly" type="" id="result-led-hidden"  name="result_led_hidden">
-							// 
-					// 
-					// 
-					// 
-				// 
-				// 
-				// 
-				// 
-				.right-block-calc
-					span.header-left-block-calc
-						| Выберите вариант замены на LED
-					// 
-					// 
-					.all-block-one-of-led-fade
-						// 
-						.all-block-one-of-led.one.focus
-							span.header-one-of-select
-								| Тип светильника
-							input#led-line-one(type='checkbox', name='led_line_one')
-							label.led-line-one(for='led-line-one')
-								span.border-for-img-led
-									img(src='../images/calculator/fl.png', align='not-image')
-								span.null-block
-									span.block-cost-led
-										span.bg-cost-led-all
-											span.bg-cost-led
-												| 3300
-											| 			  											тг
-								span.header-one-of-select
-									| Артикул
-								span.articul-led
-									| 441-LED-FL-20-6K
-								// 
-								span.power-lighting-led-hidden 20
-								span.time-job-led-hidden 30000
-								span.cost-lamp-lighting-led-hidden 3300
-								// 
-						// 
-					// 
-					// 
-					// 
-					// 
-					.all-block-two-of-led-fade
-						// 
-						.all-block-one-of-led.three.focus
-							span.header-one-of-select
-								| Тип светильника
-							input#led-line-three(type='checkbox', name='led_line_three')
-							label.led-line-three(for='led-line-three')
-								span.border-for-img-led
-									img(src='../images/calculator/fl.png', align='not-image')
-								span.null-block
-									span.block-cost-led
-										span.bg-cost-led-all
-											span.bg-cost-led
-												| 4700
-											| 			  											тг
-								span.header-one-of-select
-									| Артикул
-								span.articul-led
-									| 443-LED-FL-30-6K
-								// 
-								span.power-lighting-led-hidden 30
-								span.time-job-led-hidden 30000
-								span.cost-lamp-lighting-led-hidden 4700
-								// 
-						// 
-					// 
-					// 
-					// 
-					// 
-					.all-block-three-of-led-fade
-						// 
-						.all-block-one-of-led.six.focus
-							span.header-one-of-select
-								| Тип светильника
-							input#led-line-six(type='checkbox', name='led_line_six')
-							label.led-line-six(for='led-line-six')
-								span.border-for-img-led
-									img(src='../images/calculator/fl.png', align='not-image')
-								span.null-block
-									span.block-cost-led
-										span.bg-cost-led-all
-											span.bg-cost-led
-												| 7100
-											| 			  											тг
-								span.header-one-of-select
-									| Артикул
-								span.articul-led
-									| 445-LED-FL-50-6K
-								// 
-								span.power-lighting-led-hidden 50
-								span.time-job-led-hidden 30000
-								span.cost-lamp-lighting-led-hidden 7100
-								// 
-						// 
-					// 
-					// 
-					// 
-					//
-						<div class="null-block">
-						<span class="button-calc" onclick="checkValue();calc(this.value);">
-						Рассчитать
-						</span>
-						</div>
-					// 
-				// 
-				// 
-				// 
-				// 
-				// 
-				// 
-				.right-block-calc-two
-					span.header-left-block-calc
-						| Выберите вариант замены на LED
-					// 
-					// 
-					.all-block-one-of-led-fade
-						// 
-						.all-block-one-of-led.seven.focus
-							span.header-one-of-select
-								| Тип светильника
-							input#led-line-seven(type='checkbox', name='led_line_seven')
-							label.led-line-seven(for='led-line-seven')
-								span.border-for-img-led
-									img(src='../images/calculator/str-small.png', align='not-image')
-								span.null-block
-									span.block-cost-led
-										span.bg-cost-led-all
-											span.bg-cost-led
-												| 25920
-											| 			  											тг
-								span.header-one-of-select
-									| Артикул
-								span.articul-led
-									| LED-STR-100-6K
-								// 
-								span.power-lighting-led-hidden 100
-								span.time-job-led-hidden 30000
-								span.cost-lamp-lighting-led-hidden 25920
-								// 
-						// 
-					// 
-					// 
-					// 
-					// 
-					.all-block-two-of-led-fade
-						// 
-						.all-block-one-of-led.nine.focus
-							span.header-one-of-select
-								| Тип светильника
-							input#led-line-nine(type='checkbox', name='led_line_nine')
-							label.led-line-nine(for='led-line-nine')
-								span.border-for-img-led
-									img(src='../images/calculator/str-big.png', align='not-image')
-								span.null-block
-									span.block-cost-led
-										span.bg-cost-led-all
-											span.bg-cost-led
-												| 34200
-											| 			  											тг
-								span.header-one-of-select
-									| Артикул
-								span.articul-led
-									| LED-STR-150-6K
-								// 
-								span.power-lighting-led-hidden 150
-								span.time-job-led-hidden 30000
-								span.cost-lamp-lighting-led-hidden 34200
-								// 
-						// 
-						// 
-						.all-block-one-of-led.ten.focus
-							span.header-one-of-select
-								| Тип светильника
-							input#led-line-ten(type='checkbox', name='led_line_ten')
-							label.led-line-ten(for='led-line-ten')
-								span.border-for-img-led
-									img(src='../images/calculator/str-big-two.png', align='not-image')
-								span.null-block
-									span.block-cost-led
-										span.bg-cost-led-all
-											span.bg-cost-led
-												| 41400
-											| 			  											тг
-								span.header-one-of-select
-									| Артикул
-								span.articul-led
-									| LED-STR-200-6K
-								// 
-								span.power-lighting-led-hidden 200
-								span.time-job-led-hidden 30000
-								span.cost-lamp-lighting-led-hidden 41400
-								// 
-						// 
-					// 
-					// 
-					// 
-					//
-						<div class="null-block">
-						<span class="button-calc" onclick="checkValue();calc(this.value);">
-						Рассчитать
-						</span>
-						</div>
-					// 
-				// 
-				// 
-				// 
-				// 
-				.null-block
-					.block-all-results
-						.all-block-calc
-							.line-block-results
-								.parent-text
-									div
-										span.regular
-											| При переходе на светодиодное освещение TM Etalin, на электроэнергии вы сэкономите 
-											span.blue (тенге)
-								input#economy-led-hidden(readonly='readonly', type='', name='economy_led_hidden')
-						.all-block-calc
-							.line-block-results
-								.parent-text
-									div
-										span.regular
-											| Светодиодные светильники Etalin окупятся через 
-											span.blue (мес)
-								input#result-led-hidden(readonly='readonly', type='', name='result_led_hidden')
-				// 
-	// end-calculator
+section#calculator.calculator
+	.container
+		h2.section-title Калькулятор
+		.section-stripe
+		form.calculator-form.clearfix
+			.calculator-form--left
+				.calculator__header Какие светильники вы используете сейчас?
+				.calculator__wrapper.clearfix
+					.calculator__form-group--left
+						p.calculator-form__label Тип лампы
+						.select(name="tisBulbType")
+							.select-styled Выбрать из списка
+							ul.select-options
+								li(rel="Люминисцентная") Люминисцентная
+								li(rel="Накаливания") Накаливания
+					
+					.calculator__form-group.calculator__form-group--right
+						p.calculator-form__label Тип светильника
+						.select
+							.select-styled Выбрать из списка
+							ul.select-options#tisLampsOptions
+								li(rel="lamp1") Лампа 1
+								li(rel="lamp2") Лампа 2
+						//- .calculator-form__field.calculator-form__options#dropdownListTis
+							.calculator-form__options-title Выбрать из списка
+							.calculator-form__field.calculator-form__options-dropdown#tisLampsOptions
+				.calculator__form-group.calculator__form-group--power
+					p.calculator-form__label Мощность лампы, Вт
+					.calculator-form__field
+				p.calculator-form__label Кол-во светильников, шт
+				input(type="number",
+						name="tisLampQty",
+						placeholder="Введите значение",
+						required,
+						pattern="^\d+$").calculator-form__field.calculator-form__field-text#tisLampQty
+				p.calculator-form__label Тариф, тенге/кВт
+				input(type="number",
+						name="electricityTariff",
+						placeholder="Введите значение",
+						required,
+						pattern="\d+\.?\d{,2}").calculator-form__field.calculator-form__field-text#electricityTariff
 
-.all-block-calc
-	.center-all-block-calc
-	.left-all-block-calc
-		.null-block
-		span.button-calc
-			| Рассчитать
+			.calculator-form--right
+				.calculator__header Выберите вариант замены на LED освещение
+				p.calculator-form__label Тип светильника
+				.calculator__form-group#dropdownListLed
+					//- .calculator-form__field.calculator-form__options.calculator-form__options-selected.clearfix
+					//-     .calculator-form__options-item.selected.clearfix
+					//-         .options-item__name Прожектор 25-10
+					//-         .options-item__image
+					//-             img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+					//-         .options-item__price 27000 тг
+					.calculator-form__field.calculator-form__options#ledLampsOptions
+						.calculator-form__options-title Выбрать из списка
+						.calculator-form__field.calculator-form__options-dropdown
+					p.calculator-form__label Артикул
+				.calculator-form__field.calculator-form__field-code Прожектор 25-10
+				input(type="submit" value="Рассчитать").btn.calculator__form-btn#calculateBtn
+		
+			.calculator__results.clearfix.u-hidden
+				.calculator__results-title.
+					При переходе на светодиодное освещение ТМ Etalin, на электроэнергии вы сэкономите
+				.calculator__results-field.calculator__results-economy 370 500 тг
+				.calculator__results-title.
+					Светодиодные светильники Etalin окупятся через
+				.calculator__results-field.calculator__results-month 7 месяцев
+		
+		
+		.btn.calculator__btn Заказать консультацию
