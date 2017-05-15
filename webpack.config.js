@@ -41,7 +41,7 @@ const cssProd = ExtractTextPlugin.extract({
 let cssConfig = isProd ? cssProd : cssDev;
 module.exports = {
     entry: './app/index.js',
-    // devtool: 'inline-source-map',
+    devtool: 'eval',
     output: {
         filename: 'index_bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -67,7 +67,7 @@ module.exports = {
             {
                 test: /\.(gif|jpe?g|png|svg)(\?.*)?$/,
                 use: [
-                    'file-loader?name=images/[name].[ext]',
+                    'file-loader?name=images/[hash].[ext]',
                     {
                     loader: 'image-webpack-loader',
                     options: {}

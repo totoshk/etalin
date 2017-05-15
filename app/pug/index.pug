@@ -21,15 +21,15 @@ body
                         .bar3
                     ul.header-nav__menu
                         li.header-nav__item
-                            a(href="#about") О компании
+                            a(href="#about").anchor-link О компании
                         li.header-nav__item
-                            a(href="#technology") Технология
+                            a(href="#technology").anchor-link Технология
                         li.header-nav__item
-                            a(href="#calculator") Калькулятор
+                            a(href="#calculator").anchor-link Калькулятор
                         li.header-nav__item
-                            a(href="#partners") Партнеры
+                            a(href="#partners").anchor-link Партнеры
                         li.header-nav__item
-                            a(href="#contacts") Контакты
+                            a(href="#contacts").anchor-link Контакты
             .header-contacts.clearfix
                 .container
                     .header-contacts__item.header-contacts__adress
@@ -38,7 +38,8 @@ body
                     .header-contacts__item.header-contacts__phone
                         a(href="#" title="")
                             <i class="fa fa-phone" aria-hidden="true"></i> 
-                            span +7 727 356 11 05
+                            a(href="tel:+77273561105")
+                                span +7 727 356 11 05
                     .header-contacts__item.header-contacts__callback
                         <i class="fa fa-volume-control-phone" aria-hidden="true"></i> 
                         a(href="#")#callback Заказать обратный звонок
@@ -50,7 +51,7 @@ body
                         h1.header-content__title Офисное освещение
                         .section-stripe.clearfix
                         .header-content__tagline Светодиодное освещение - это выгодные и надежные инвестиции в Ваш <br/> бизнес!
-                    a(href="#" title="").btn.header-content__btn Расчет окупаемости
+                    a(href="#calculator").btn.header-content__btn.anchor-link Расчет окупаемости
                     .header-content__description Узнайте свою выгоду от перехода на LED и начните экономить уже сегодня!
             .popup-form
                 .container
@@ -116,7 +117,7 @@ body
             form.calculator-form.clearfix
                 .calculator-form--left
                     .calculator__header Какие светильники вы используете сейчас?
-                    .calculator__wpapper
+                    .calculator__wrapper.clearfix
                         .calculator__form-group--left
                             p.calculator-form__label Тип лампы
                             select.calculator-form__field.calculator-form__field-select(name="tisBulbType")
@@ -128,64 +129,43 @@ body
                             p.calculator-form__label Тип светильника
                             //- .calculator-form__field.calculator-form__field-image
                             //-     img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                            .calculator-form__field.calculator-form__options
+                            .calculator-form__field.calculator-form__options#dropdownListTis
                                 .calculator-form__options-title Выбрать из списка
-                                .calculator-form__field.calculator-form__options-dropdown
-                                    .calculator-form__options-item.clearfix
-                                        .options-item__name Прожектор 25-10
-                                        .options-item__image
-                                            img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                                        .options-item__price 27000 тг
-                                    .calculator-form__options-item.clearfix
-                                        .options-item__name Прожектор 25-10
-                                        .options-item__image
-                                            img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                                    .calculator-form__options-item.clearfix
-                                        .options-item__name Прожектор 25-10
-                                        .options-item__image
-                                            img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                    p.calculator-form__label Мощность лампы, Вт
-                    select.calculator-form__field.calculator-form__field-select
-                        option(disbled) Выбрать из списка
-                        option(value="18") 18
-                        option(value="112") 112
-                        option(value="75") 75
+                                .calculator-form__field.calculator-form__options-dropdown#tisLampsOptions
+                    .calculator__form-group.calculator__form-group--power
+                        p.calculator-form__label Мощность лампы, Вт
+                        .calculator-form__field
                     p.calculator-form__label Кол-во светильников, шт
-                    input(type="text" name="power" placeholder="Введите значение").calculator-form__field.calculator-form__field-text
+                    input(type="number",
+                          name="tisLampQty",
+                          placeholder="Введите значение",
+                          required,
+                          pattern="^\d+$").calculator-form__field.calculator-form__field-text#tisLampQty
                     p.calculator-form__label Тариф, тенге/кВт
-                    input(type="text" name="price" placeholder="Введите значение").calculator-form__field.calculator-form__field-text
+                    input(type="number",
+                          name="electricityTariff",
+                          placeholder="Введите значение",
+                          required,
+                          pattern="\d+\.?\d{,2}").calculator-form__field.calculator-form__field-text#electricityTariff
 
                 .calculator-form--right
                     .calculator__header Выберите вариант замены на LED освещение
                     p.calculator-form__label Тип светильника
-                    .calculator__form-group
-                        .calculator-form__field.calculator-form__options.calculator-form__options-selected.clearfix
-                            .calculator-form__options-item.selected.clearfix
-                                .options-item__name Прожектор 25-10
-                                .options-item__image
-                                    img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                                .options-item__price 27000 тг
-                        .calculator-form__field.calculator-form__options.u-hidden
+                    .calculator__form-group#dropdownListLed
+                        //- .calculator-form__field.calculator-form__options.calculator-form__options-selected.clearfix
+                        //-     .calculator-form__options-item.selected.clearfix
+                        //-         .options-item__name Прожектор 25-10
+                        //-         .options-item__image
+                        //-             img(src="../images/calculator/lpo-four-small.png" alt="lampa")
+                        //-         .options-item__price 27000 тг
+                        .calculator-form__field.calculator-form__options#ledLampsOptions
                             .calculator-form__options-title Выбрать из списка
                             .calculator-form__field.calculator-form__options-dropdown
-                                .calculator-form__options-item.clearfix
-                                    .options-item__name Прожектор 25-10
-                                    .options-item__image
-                                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                                    .options-item__price 27000 тг
-                                .calculator-form__options-item.clearfix
-                                    .options-item__name Прожектор 25-10
-                                    .options-item__image
-                                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-                                .calculator-form__options-item.clearfix
-                                    .options-item__name Прожектор 25-10
-                                    .options-item__image
-                                        img(src="../images/calculator/lpo-four-small.png" alt="lampa")
                         p.calculator-form__label Артикул
                     .calculator-form__field.calculator-form__field-code Прожектор 25-10
-                    input(type="submit" value="Рассчитать").btn.calculator__form-btn
+                    input(type="submit" value="Рассчитать").btn.calculator__form-btn#calculateBtn
             
-                .calculator__results.clearfix
+                .calculator__results.clearfix.u-hidden
                     .calculator__results-title.
                         При переходе на светодиодное освещение ТМ Etalin, на электроэнергии вы сэкономите
                     .calculator__results-field.calculator__results-economy 370 500 тг
