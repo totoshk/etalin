@@ -13,11 +13,13 @@
         }
         @media(min-width: $desktop-min) {
             font-size: 27px;
+            width: 85%;
         }
     }
 
     &-form {
         text-align: center;
+        position: relative;
 
         @media(min-width: $desktop-min) {
             text-align: left
@@ -27,25 +29,28 @@
             font-size: 20px;
             color: #003366;
             margin-bottom: 5px;
+            text-align: center;
 
             @media(min-width: $tablet-min) {
                 font-size: 30px;
                 margin-bottom: 11px;
-				text-align: center;
+				
             }
 
             @media(min-width: $desktop-min) {
-                width: 375px;
+                width: 335px;
+                text-align: left;
+                font-size: 24px;
             }
         }
         &__field {
             font-family: "Century Gothic";
             background: #fff;
             border: 2px solid #99cc33;
-            border-radius: 10px;
+            border-radius: 6px;
             margin-bottom: 26px;
             padding: 14px 11px;
-            width: 289px;
+            width: 100%;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -53,7 +58,7 @@
 
             &:focus {
                 border: 2px solid #2f8c00;
-                border-radius: 10px;
+                border-radius: 6px;
                 outline: none;
                 color: #000;
             }
@@ -69,8 +74,8 @@
             }
 
             @media(min-width: $desktop-min) {
-                width: 370px;
-                padding: 17px 11px;
+                width: 335px;
+                padding: 14px 11px;
             }
 
 
@@ -114,7 +119,7 @@
                 margin: 15px auto 64px;
 
 				@media(min-width: $desktop-min) {
-					margin-bottom: 38px;
+                    margin: 0 0 68px;
 				}
             }
         }
@@ -164,7 +169,7 @@
 			// }
 			&-selected:hover {
 				border-bottom-color: #99cc33;
-				border-radius: 10px;
+				border-radius: 6px;
 			}
         }
 
@@ -173,7 +178,12 @@
 
             @media(min-width: $desktop-min) {
                 float: left;
-                width: 68%
+                width: 62%;
+
+                & .calculator__header {
+                    width: 50%;
+                }
+
             }
         }
 
@@ -181,7 +191,7 @@
 
             @media(min-width: $desktop-min) {
                 float: right;
-                width: 32%;
+                width: 37%;
 
                 // & .calculator__header {
                 //     margin-left: -100px;
@@ -206,13 +216,24 @@
             padding: 7px;
             font-size: 30px;
         }
+
+        @media(min-width: $desktop-min) {
+            margin-left: 0;
+            margin-bottom: 0;
+            width: 335px;
+            position: absolute;
+            bottom: 72px;
+        }
     }
 }
 
 .calculator__form-group {
-
+    &--article {
+        display: none;
+    }
 	&--power {
 		display: none;
+        clear: left;
 	}
 }
 .options {
@@ -244,13 +265,7 @@
             }
         }
 
-		&__price {
-			float: right;
-			text-align: right;
-			background:  #76bd2a;
-			padding: 10px;
-			font-weight: bold;
-		}
+		
     }
 }
 
@@ -262,7 +277,7 @@
 
 		&--right {
 			float: right;
-			margin-right: 23px;
+			margin-right: 15px;
 		}
 	}
 }
@@ -289,6 +304,10 @@
 			width: 59%;
 			margin-bottom: 23px;
 		}
+
+        @media(min-width: $desktop-min) {
+            width: 51%;
+        }
 	}
 
 	&-field {
@@ -296,7 +315,7 @@
 		font-weight: bold;
 		font-size: 20px;
 		border: 2px solid #99cc33;
-		border-radius: 10px;
+		border-radius: 6px;
 		margin-bottom: 36px;
 		padding: 14px 11px;
 		
@@ -310,39 +329,67 @@
 		}
 
 		@media(min-width: $desktop-min) {
+            float: left;
 			margin-bottom: 25px;
+            margin-left: 144px;
+            width: 335px;
+
+            &:first-child {
+                margin-top: 3px;
+            }
+
 		}
 	}
 }
 
 $select-color: #ddd;
 $select-background: #fff;
-$select-width: 220px;
+$select-width: 370px;
 $select-height: 40px;
 $select-border: 2px solid #99cc33;
 
-
+.select-hidden {
+    display: none;
+    visibility: hidden;
+    padding-right: 10px;
+}
 .select {
 	cursor: pointer;
 	position: relative;
 	width: 100%;
-	height: $select-height;
+	// height: $select-height;
 	text-align: left;
+    margin: 0 auto 26px;
 
 	@media (min-width: $tablet-min) {
 		width: $select-width;
 	}
+    @media(min-width: $desktop-min) {
+        width: 335px;
+        margin-left: 0;
+    }
 }
 .select-styled {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 8px 15px;
-  border: $select-border;
-  border-radius: 6px;
-  transition: all 0.2s ease-in;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+    position: relative;
+    padding: 14px 15px;
+    border: $select-border;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in;
+    background: #fff;
+
+    &.disabled {
+        opacity: 0.8;
+        border-color: #ccc;
+
+        &:active, &.active {
+            border-color: #ccc;
+        }
+    }
 
   &:after {
     content:"";
@@ -351,26 +398,29 @@ $select-border: 2px solid #99cc33;
     border: 7px solid transparent;
     border-color: $select-color transparent transparent transparent;
     position: absolute;
-    top: 16px;
+    top: 22px;
     right: 10px;
   }
   &:hover {
     
   }
   &:active, &.active {
+    border: 2px solid #2f8c00;
     
     &:after {
-      top: 9px;
+      top: 12px;
       border-color: transparent transparent $select-color transparent;
     }
   }
 }
 
 .select-options {
+	display: none;
 	background-color: #fff;
 	position: absolute;
-	top: 100%;
+	// top: 100%;
 	// top: calc(100% - 2px);
+    // top: 53px;
     right: 0;
     left: 0;
     z-index: 999;
@@ -380,14 +430,52 @@ $select-border: 2px solid #99cc33;
 
 	li {
 		margin: 0;
-		padding: 12px 0;
-		text-indent: 15px;
-		transition: all 0.15s ease-in;
+		padding: 12px 15px;
+		transition: background-color 0.15s ease-in;
 		border: 1px solid #99cc33;
 		border-top: 0;
+        position: relative;
 
 		&:hover {
 			background-color: rgba(0, 51, 102, 0.2);
 		}
 	}
+
+    li[rel="hide"] {
+        display: none;
+    }
+
+    &__name {
+        float: right;
+        width: 50%;
+        text-align: center;
+        margin-top: 18px;
+
+        @media(min-width: $tablet-min) {
+            
+        }
+    }
+
+    &__image {
+        width: 40%;
+        overflow: hidden;
+
+        img {
+            max-width: 100%
+        }
+
+        @media(min-width: $desktop-min) {
+            width: 41.8%;
+
+           
+        }
+    }
+    &__price {
+        position: absolute;
+        bottom: 20px;
+        right: 40px;
+        background:  #76bd2a;
+        padding: 10px;
+        font-weight: bold;
+    }
 }

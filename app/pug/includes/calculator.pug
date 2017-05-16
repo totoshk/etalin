@@ -5,22 +5,32 @@ section#calculator.calculator
 		form.calculator-form.clearfix
 			.calculator-form--left
 				.calculator__header Какие светильники вы используете сейчас?
-				.calculator__wrapper.clearfix
-					.calculator__form-group--left
-						p.calculator-form__label Тип лампы
-						.select(name="tisBulbType")
-							.select-styled Выбрать из списка
-							ul.select-options
-								li(rel="Люминисцентная") Люминисцентная
-								li(rel="Накаливания") Накаливания
+				//- .calculator__wrapper.clearfix
+				.calculator__form-group--left
+					p.calculator-form__label Тип лампы
+					//- select#tisBulbType
+					//- 	option(value="hide")
+					//- 	option(value="Люминисцентная") Люминисцентная
+					//- 	option(value="Накаливания") Накаливания
+					.select#bulbTypeSelect
+						.select-styled Выбрать из списка
+						ul.select-options#tisBulbType
+							li(rel="Люминисцентная") Люминисцентная
+							li(rel="Накаливания") Накаливания
 					
-					.calculator__form-group.calculator__form-group--right
-						p.calculator-form__label Тип светильника
-						.select
-							.select-styled Выбрать из списка
-							ul.select-options#tisLampsOptions
-								li(rel="lamp1") Лампа 1
-								li(rel="lamp2") Лампа 2
+				.calculator__form-group.calculator__form-group--right
+					p.calculator-form__label Тип светильника
+					.select#tisLampSelect
+						.select-styled.disabled Выбрать из списка
+						ul.select-options#tisLampsOptions
+							li(rel="lamp1")
+								p.select-options__name 409-LED-OLL-15-6K
+								.select-options__image
+									img(src="../images/calculator/409-LED-OLL-15-6K.png", alt="lamp")
+							li(rel="lamp2")
+								p.select-options__name 440-D-458-LED-13w
+								.select-options__image
+									img(src="../images/calculator/409-LED-OLL-15-6K.png", alt="lamp")
 						//- .calculator-form__field.calculator-form__options#dropdownListTis
 							.calculator-form__options-title Выбрать из списка
 							.calculator-form__field.calculator-form__options-dropdown#tisLampsOptions
@@ -30,40 +40,45 @@ section#calculator.calculator
 				p.calculator-form__label Кол-во светильников, шт
 				input(type="number",
 						name="tisLampQty",
-						placeholder="Введите значение",
+						placeholder="Введите целое число",
 						required,
 						pattern="^\d+$").calculator-form__field.calculator-form__field-text#tisLampQty
 				p.calculator-form__label Тариф, тенге/кВт
-				input(type="number",
+				input(type="text",
 						name="electricityTariff",
-						placeholder="Введите значение",
+						placeholder="Введите число",
 						required,
-						pattern="\d+\.?\d{,2}").calculator-form__field.calculator-form__field-text#electricityTariff
+						pattern="[0-9]+(\.[0-9]{0,2})?").calculator-form__field.calculator-form__field-text#electricityTariff
 
 			.calculator-form--right
 				.calculator__header Выберите вариант замены на LED освещение
-				p.calculator-form__label Тип светильника
-				.calculator__form-group#dropdownListLed
-					//- .calculator-form__field.calculator-form__options.calculator-form__options-selected.clearfix
-					//-     .calculator-form__options-item.selected.clearfix
-					//-         .options-item__name Прожектор 25-10
-					//-         .options-item__image
-					//-             img(src="../images/calculator/lpo-four-small.png" alt="lampa")
-					//-         .options-item__price 27000 тг
-					.calculator-form__field.calculator-form__options#ledLampsOptions
-						.calculator-form__options-title Выбрать из списка
-						.calculator-form__field.calculator-form__options-dropdown
+				.calculator__form-group.clearfix
+					p.calculator-form__label Тип светильника
+					.select#ledLampSelect
+						.select-styled.disabled Выбрать из списка
+						ul.select-options#ledLampsOptions
+							li(rel="lamp1")
+								p.select-options__name 409-LED-OLL-15-6K
+								.select-options__image
+									img(src="../images/calculator/409-LED-OLL-15-6K.png", alt="lamp")
+								.select-options__price 27000 тг
+							li(rel="lamp2")
+								p.select-options__name 409-LED-OLL-15-6K
+								.select-options__image
+									img(src="../images/calculator/409-LED-OLL-15-6K.png", alt="lamp")
+								.select-options__price 27000 тг
+				.calculator__form-group.calculator__form-group--article
 					p.calculator-form__label Артикул
-				.calculator-form__field.calculator-form__field-code Прожектор 25-10
+					.calculator-form__field.calculator-form__field-code#ledLampName
 				input(type="submit" value="Рассчитать").btn.calculator__form-btn#calculateBtn
 		
-			.calculator__results.clearfix.u-hidden
-				.calculator__results-title.
-					При переходе на светодиодное освещение ТМ Etalin, на электроэнергии вы сэкономите
-				.calculator__results-field.calculator__results-economy 370 500 тг
-				.calculator__results-title.
-					Светодиодные светильники Etalin окупятся через
-				.calculator__results-field.calculator__results-month 7 месяцев
+		.calculator__results.clearfix.u-hidden
+			.calculator__results-title.
+				При переходе на светодиодное освещение ТМ Etalin, на электроэнергии вы сэкономите
+			.calculator__results-field.calculator__results-economy 370 500 тг
+			.calculator__results-title.
+				Светодиодные светильники Etalin окупятся через
+			.calculator__results-field.calculator__results-month 7 месяцев
 		
 		
 		.btn.calculator__btn Заказать консультацию

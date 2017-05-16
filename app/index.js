@@ -30,13 +30,6 @@ $(function () {
 
         $('body,html').stop().animate({scrollTop: top}, 1000);
     });
-
-	$('#dropdownListTis').on('click', function (e) {
-		$('#tisLampsOptions').toggle(300, )
-	});
-	$('#dropdownListLed').on('click', function (e) {
-		$('#ledLampsOptions').toggle(300, )
-	});
 	
 	var headerNav = $('.header-nav');
 	var $window = $(window);
@@ -47,7 +40,8 @@ $(function () {
 		} else {
 			headerNav.removeClass('is-hidden');
 		};
-		if (scrollOffset < scrollOffset+200) {
+		var titleOffset = $(".section-title").offset().top;
+		if (titleOffset - scrollOffset < 10) {
 			$(".section-title").addClass('animated fadeInDown')
 		} 
 	});

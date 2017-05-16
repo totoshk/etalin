@@ -8,7 +8,8 @@
             height: 1044px;
         }
         @media(min-width: $desktop-min) {
-		    height: 1074px;
+            height: 100vh;
+            // height: 970px;
         }
 	}
 	
@@ -21,6 +22,10 @@
 	.owl-dots {
         position: absolute;
         bottom: 40px;
+
+        @media(min-width: $desktop-min) {
+            bottom: 25px;
+        }
     }
     
     .owl-dot {
@@ -34,7 +39,7 @@
 // Стили для меню
 
 .header-nav {
-    background: rgba(0, 51, 102, 0.6);
+    background: rgba(0, 51, 102, 0.35);
     position: fixed;
     top: 0;
     width: 100%;
@@ -42,9 +47,11 @@
 
     
     @media (min-width: $tablet-min) {
-        padding: 21px 0;
+        background: rgba(0, 51, 102, 0.6);
+        padding: 21px;
+
         &.is-hidden {
-            top: -60px;
+            top: -50px;
             transition: top .35s ease;
 
             &:hover {
@@ -52,20 +59,6 @@
                 transition: top .35s ease;
             }
         }
-    }
-
-    @media(min-width: $tablet-min) {
-        padding: 28px 0 30px;
-
-        &__menu {
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-        }
-    }
-
-    @media(min-width: $desktop-min) {
-        padding: 21px 0 27px;
     }
 
     &__menu {
@@ -81,9 +74,17 @@
             width: 100%;
             margin: 0;
             background: rgba(0, 51, 102, 0.8);
-            padding: 35px 0;
+            padding: 25px 0 0;
             text-align: center;
 
+            @media(min-width: $tablet-min) {
+                padding: 35px 0;
+            }
+        }
+        @media(min-width: $tablet-min) {
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
         }
     }
 
@@ -119,7 +120,7 @@
 
         @media(min-width: $tablet-min) {
             display: inline-block;
-            margin-right: 5.6%;
+            // margin-right: 5.6%;
             margin-bottom: 0;
 
             &:last-child {
@@ -129,7 +130,7 @@
 
         @media(min-width: $desktop-min) {
             // margin-right: 107px;
-            font-size: 24px;
+            font-size: 22px;
         }
     }
 }
@@ -172,12 +173,12 @@
 
     @media(min-width: $tablet-min) {
         padding: 14px 0;
-        margin-top: 78px;
+        margin-top: 62px;
     }
 
     @media(min-width: $desktop-min) {
         padding: 9px 0 7px;
-        margin-top: 75px;
+        margin-top: 67px;
     }
 
     &__item {
@@ -227,6 +228,7 @@
 
         @media(min-width: $desktop-min) {
             margin-left: 18%;
+            margin-top: -5px;
             
             & .fa {
                 font-size: 24px;
@@ -243,7 +245,7 @@
 
         & a {
             font-size: 16px;
-            border-bottom: 2px solid #003366;
+            border-bottom: 1px solid #003366;
 
             @media(min-width: $desktop-min) {
                 font-size: 18px;
@@ -279,7 +281,13 @@
     }
 
     @media(min-width: $desktop-min) {
-        margin-top: 6.8%;
+        margin-top: 7vh;
+        width: 50vh;
+        height: 50vh;
+        max-width: 520px;
+        max-height: 520px;
+        padding: 21px;
+        margin-bottom: 50px;
     }
 }
 
@@ -298,6 +306,10 @@
             width: 310px;
             margin-bottom: 9px;
         }
+
+        @media(min-width: $desktop-min) {
+            width: 60%;
+        }
     }
 
     &__title {
@@ -310,6 +322,12 @@
             font-size: 50px;
             line-height: 63px;
             margin-bottom: 20px;
+        }
+        
+        @media(min-width: $desktop-min) {
+            font-size: 250%;
+            line-height: 120%;
+            margin-bottom: 9px;
         }
     }
 
@@ -336,6 +354,11 @@
             line-height: 33px;
 
         }
+        @media(min-width: $desktop-min) {
+            width: 80%;
+            max-width: 400px;
+            font-size: 130%;
+        }
     }
 
     &__btn {
@@ -356,7 +379,7 @@
             font-size: 30px;
             padding: 14px 0 16px;
             width: 455px;
-            margin-bottom: 31px;
+            margin-bottom: 20px;
         }
     }
 

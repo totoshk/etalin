@@ -11,7 +11,7 @@ body
     section.header
         .owl-carousel.owl-header-carousel
             .owl-slide
-            .owl-slide
+            //- .owl-slide
         .wrapper
             nav.header-nav.clearfix
                 .container
@@ -60,7 +60,7 @@ body
                     .section-stripe
                     form(method="post").contacts__callback.popup-form__callback.clearfix
                         input(type="text" name="Name" placeholder="Имя" required pattern="[A-Za-zА-Яа-я]{3,} *[A-Za-zА-Яа-я]* *[A-Za-zА-Яа-я]*").contacts__callback-field
-                        input(type="text" name="Phone" placeholder="Телефон" required pattern="^\+((8|[0-9])[\- ]?)?([\- ]?)?[\d\- ]{11,}$").contacts__callback-field
+                        input(type="tel" name="Phone" placeholder="Телефон" required pattern="^\+((8|[0-9])[\- ]?)?([\- ]?)?[\d\- ]{11,}$").contacts__callback-field
                         input(type="submit" value="Подтвердить").btn.popup-form__btn
 
     
@@ -127,17 +127,17 @@ body
                 .logo-item
                     img(src="../images/partners/ramstore.jpg")
                 .logo-item
-                    img(src="../images/partners/alser-logo.png")
+                    img(src="../images/partners/Alser_3d_ru.png")
                 .logo-item
                     img(src="../images/partners/220-volt-logo.png")
                 .logo-item
                     img(src="../images/partners/Bi-group.png")
                 .logo-item
-                    img(src="../images/partners/strojmart.jpg")
+                    img(src="../images/partners/strojmart.png")
                 .logo-item
-                    img(src="../images/partners/Line-Logo-1.jpg")
+                    img(src="../images/partners/Line Logo-1.jpg")
                 .logo-item
-                    img(src="../images/partners/ElCom_all_logos.png")
+                    img(src="../images/partners/Elcom logo.png")
             .btn.partners__btn Портфолио
     section#contacts.contacts
         .container
@@ -160,8 +160,8 @@ body
             form(method="post").contacts__callback.clearfix
                 p Если у вас остались вопросы, вы можете оставить сообщение и наши специалисты свяжутся с вами.
                 input(type="text" name="Name" placeholder="Имя" required pattern="[A-Za-zА-Яа-я]{3,} *[A-Za-zА-Яа-я]* *[A-Za-zА-Яа-я]*").contacts__callback-field
-                input(type="text" name="Phone" placeholder="Телефон" required pattern="^\+((8|[0-9])[\- ]?)?([\- ]?)?[\d\- ]{11,}$").contacts__callback-field
-                input(type="text" name="Email" placeholder="E-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$").contacts__callback-field
+                input(type="tel" name="Phone" placeholder="Телефон" required pattern="^\+((8|[0-9])[\- ]?)?([\- ]?)?[\d\- ]{11,}$").contacts__callback-field
+                input(type="email" name="Email" placeholder="E-mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$").contacts__callback-field
                 textarea(rows="10" cols="25" name="Message" placeholder="Сообщение").contacts__callback-field
                 input(type="submit" value="Отправить").btn.contacts__callback-btn
 

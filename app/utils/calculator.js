@@ -1,9 +1,10 @@
-$('.select').each(function() {
-	var $this = $(this);
+function initSelect ($select) {
+	var $this = $select;
 	var $styledSelect = $this.find('.select-styled');
 	var $list = $this.find('ul.select-options');
 	var $listItems = $list.children('li');
-	
+	$styledSelect.removeClass('disabled');
+	$styledSelect.unbind('click');
 	$styledSelect.click(function(e) {
 		e.stopPropagation();
 		$('div.select-styled.active').not(this).each(function(){
@@ -11,23 +12,24 @@ $('.select').each(function() {
 		});
 		$(this).toggleClass('active').next('ul.select-options').toggle();
 	});
-
+	$listItems.unbind('click');
 	$listItems.click(function(e) {
 		e.stopPropagation();
-		$styledSelect.text($(this).text()).removeClass('active');
+		$styledSelect.html($(this).html()).attr('rel', $(this).attr('rel')).removeClass('active');
 		$list.hide();
-		//console.log($this.val());
 	});
 
 	$(document).click(function() {
 		$styledSelect.removeClass('active');
 		$list.hide();
 	});
-});
+}
 
+initSelect($('#bulbTypeSelect'));
 
 
 {
+
 let tisLamps = [
 		{
 			name: "ЛПО 0,6м 2*18",
@@ -176,16 +178,16 @@ let tisLamps = [
 		},
 	];
 
-	const chosenValues = {
+	const chosenLamps = {
 		tisLamp: null,
 		ledLamp: null
 	};
 
 	// Элементы формы
-	let calcFormLampPower = $('.calculator__form-group--power');
-	let resultsBlock = $('.calculator__results');
-	let economyResultsBlock = resultsBlock.find('.calculator__results-economy');
-	let recoupmentResultsBlock = resultsBlock.find('.calculator__results-month');
+	let calcFormLampPower = $('.calculator__form-group--power'); // Блок мощности лампы
+	let resultsBlock = $('.calculator__results'); // блок вывода результатов
+	let economyResultsBlock = resultsBlock.find('.calculator__results-economy'); // вывод экономии
+	let recoupmentResultsBlock = resultsBlock.find('.calculator__results-month'); // вывод окупаемости
 
 	let availableTisTypes = tisLamps.reduce((prev, cur) => {
 		prev.indexOf(cur.type) === -1 ? prev.push(cur.type) : null;
@@ -197,7 +199,7 @@ let tisLamps = [
 			return lamp.type === lampType;
 		}
 	}
-
+// Расчет экономии
 	function electricityEconomy (ledLamp, tisLamp, tisLampQty, electricityTariff) {
 		let replacementNumber = ledLamp.lifeTime / tisLamp.lifeTime;
 		let replacementCost = tisLampQty * tisLamp.bulbQty * tisLamp.lampCost * replacementNumber;
@@ -207,7 +209,7 @@ let tisLamps = [
 
 		return electricityEconomy;
 	}
-
+// Расчет окупаемости
 	function recoupment (ledLamp, tisLamp, tisLampQty, electricityTariff) {
 		let replacementCost = tisLampQty * tisLamp.bulbQty * tisLamp.lampCost * (ledLamp.lifeTime / tisLamp.lifeTime);
 		let tisToLedReplacementCost = tisLampQty * ledLamp.lampCost;
@@ -219,30 +221,35 @@ let tisLamps = [
 	}
 
 	// Подтягиваем список ламп люминисцентных или накаливания в зависимости от выбора пользователя
-	$('[name="tisBulbType"]').on('change', function (e){
-		var selectedTisLampType = $(this).find('option:selected').text();
+	$('#tisBulbType li').on('click', function (e) {
+		resetCalculator();
+		var selectedTisLampType = $(this).attr('rel');
 		let chosenLamps = tisLamps.filter(filterFunc(selectedTisLampType));
 		updateLampsOptions(chosenLamps);
 	});
+
 	// Формируется список вариантов ламп
 	function updateLampsOptions (lampsArr) {
-		resetCalculator();
 		let tisLampTypeSelect = $('#tisLampsOptions');
 		let html = '';
 		lampsArr.forEach(function (lamp, index) {
-			html += `<div class="calculator-form__options-item calculator-form__tis-lamp clearfix" data-lamp='${JSON.stringify(lamp)}'>
-						<div class="options-item__name">${lamp.name}</div>
-						<div class="options-item__image">
+			html += `<li data-lamp='${JSON.stringify(lamp)}' rel='${lamp.name}'>
+						<p class="select-options__name">${lamp.name}</p>
+						<div class="select-options__image">
 							<img src="${lamp.imgSrc}" alt="${lamp.name}">
 						</div>
-					</div>`;
+					</li>`;
 		});
 
 		tisLampTypeSelect.html(html);
 
-		$('.calculator-form__tis-lamp').on('click', function (e) {
+		initSelect($('#tisLampSelect'));
+
+		tisLampTypeSelect.children('li').on('click', function (e) {
 			let lamp = JSON.parse(this.dataset.lamp);
 			updateLedLampsOptions(lamp);
+			chosenLamps.tisLamp = lamp;
+			console.log('here 2');
 		});
 	}
 	// Формируетс список аналогов ламп LED, на основе выбора не лед лампы
@@ -250,31 +257,42 @@ let tisLamps = [
 		let ledLampTypeSelect = $('#ledLampsOptions');
 		let html = '';
 		tisLamp.ledAnalogs.forEach(function (lamp, index) {
-			html += `<div clacalcFormLampPowerss="calculator-form__options-item calculator-form__tis-lamp clearfix" data-lamp='${JSON.stringify(lamp)}'>
-						<div class="options-item__name">${lamp.name}</div>
-						<div class="options-item__image">
+			html += `<li data-lamp='${JSON.stringify(lamp)}' rel='${lamp.name}'>
+						<p class="select-options__name">${lamp.name}</p>
+						<div class="select-options__image">
 							<img src="${lamp.imgSrc}" alt="${lamp.name}">
 						</div>
-						<div class="options-item__price">
-							${lamp.lampCost} тг
-						</div>
-					</div>`;
+						<div class="select-options__price">${lamp.lampCost} тг</div>
+					</li>`;
 		});
 
 		ledLampTypeSelect.html(html);
+		initSelect($('#ledLampSelect'));
 		calcFormLampPower.find('.calculator-form__field').html(tisLamp.lampPower);
 		calcFormLampPower.slideDown();
+
+		ledLampTypeSelect.children('li').on('click', function (e) {
+			let lamp = JSON.parse(this.dataset.lamp);
+			chosenLamps.ledLamp = lamp;
+			let $articleBlock = 	$('.calculator__form-group--article');
+			$articleBlock.find('#ledLampName').html(lamp.name);
+			$articleBlock.slideDown();
+		});
 	}
 
 	// Вывод результатов по нажатия на кнопку РАССЧИТАТЬ (т.е. подтверждение формы)
 	$('.calculator-form').on('submit', function(e) {
-		resetCalculator();
-
+		if (!chosenLamps.tisLamp || !chosenLamps.ledLamp) {
+			alert('Выберите тип ламп');
+			return false;
+		}
+		let ledLamp = chosenLamps.ledLamp;
+		let tisLamp = chosenLamps.tisLamp;
 		let electricityTariff = Number($('#electricityTariff').val());
 		let tisLampQty = Number($('#tisLampQty').val());
 		
-		recoupmentResultsBlock.html(electricityEconomy(ledLamp, tisLamp, tisLampQty, electricityTariff) + ' мес');
-		economyResultsBlock.html(recoupment(ledLamp, tisLamp, tisLampQty, electricityTariff) + ' тг');
+		economyResultsBlock.html(electricityEconomy(ledLamp, tisLamp, tisLampQty, electricityTariff) + ' тг');
+		recoupmentResultsBlock.html(recoupment(ledLamp, tisLamp, tisLampQty, electricityTariff) + ' мес');
 		resultsBlock.removeClass('u-hidden');
 		return false;
 	});
@@ -284,7 +302,19 @@ let tisLamps = [
 		recoupmentResultsBlock.html('');
 		economyResultsBlock.html('');
 		calcFormLampPower.slideUp();
+		$('.calculator__form-group--article').slideUp();
 		// calcFormLampPower.find('.calculator-form__field').html('');
 		$('#ledLampsOptions').html('');
+		resetSelect($('#ledLampSelect'));
+		resetSelect($('#tisLampSelect'));
+	}
+
+	function resetSelect ($select) {
+		var $this = $select;
+		var $styledSelect = $this.find('.select-styled');
+		var $list = $this.find('ul.select-options');
+
+		$styledSelect.html('Выбрать из списка').addClass('disabled');
+		$list.html('');
 	}
 }
