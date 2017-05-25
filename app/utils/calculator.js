@@ -25,6 +25,23 @@ function initSelect ($select) {
 	});
 }
 
+function pluralize(format, count) {
+	var plural = "", singular = "";
+	var units = count % 10;
+	var tens = Math.floor((count % 100) / 10);
+	var index = 0;
+
+	if (format) {
+		format = format.replace(/(:|;|\s)/gi, "").split(/\,/);
+			
+		} else {
+			console.log("Предоставьте формат подписей ко временным промежуткам.");
+		}
+	index = (count === 1 ? 0 : (units >= 2 && units <= 4 && tens != 1 ? 1 :
+			(units === 1 && tens != 1 ? 0 : 2)));
+	return format[index];
+}
+
 initSelect($('#bulbTypeSelect'));
 
 
@@ -258,7 +275,6 @@ let tisLamps = [
 		let html = '';
 		tisLamp.ledAnalogs.forEach(function (lamp, index) {
 			html += `<li data-lamp='${JSON.stringify(lamp)}' rel='${lamp.name}'>
-						<p class="select-options__name">${lamp.name}</p>
 						<div class="select-options__image">
 							<img src="${lamp.imgSrc}" alt="${lamp.name}">
 						</div>
@@ -268,7 +284,7 @@ let tisLamps = [
 
 		ledLampTypeSelect.html(html);
 		initSelect($('#ledLampSelect'));
-		calcFormLampPower.find('.calculator-form__field').html(tisLamp.lampPower);
+		calcFormLampPower.find('.calculator-form__field').html(tisLamp.bulbPower);
 		calcFormLampPower.slideDown();
 
 		ledLampTypeSelect.children('li').on('click', function (e) {
@@ -290,9 +306,10 @@ let tisLamps = [
 		let tisLamp = chosenLamps.tisLamp;
 		let electricityTariff = Number($('#electricityTariff').val());
 		let tisLampQty = Number($('#tisLampQty').val());
+		let resultedRecoupment = recoupment(ledLamp, tisLamp, tisLampQty, electricityTariff);
 		
-		economyResultsBlock.html(electricityEconomy(ledLamp, tisLamp, tisLampQty, electricityTariff) + ' тг');
-		recoupmentResultsBlock.html(recoupment(ledLamp, tisLamp, tisLampQty, electricityTariff) + ' мес');
+		economyResultsBlock.html((''+electricityEconomy(ledLamp, tisLamp, tisLampQty, electricityTariff)).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1&thinsp;') + ' тг');
+		recoupmentResultsBlock.html(resultedRecoupment + ' ' + pluralize('месяц, месяца, месяцев', resultedRecoupment));
 		resultsBlock.removeClass('u-hidden');
 		return false;
 	});

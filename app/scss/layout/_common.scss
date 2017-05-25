@@ -94,6 +94,7 @@ ul {
     font-weight: bold;
     text-align: center;
     margin-bottom: 5px;
+    transition: opacity .6s ease-in;
 
     @media(min-width: $tablet-min) {
         margin-bottom: 25px;
@@ -158,5 +159,226 @@ section {
 
     @media(min-width: $desktop-min) {
         display: block;
+    }
+}
+
+
+// Стили для страницы со статьей
+
+.article {
+    font-size: 14px;
+    margin-top: 70px;
+
+    &__content {
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 26px;
+            margin-bottom: 15px;
+            
+            & + p {
+                margin-top: 15px;
+            }
+        }
+
+        ol > li {
+            font: normal 1.1em "Century Gothic";
+            line-height: 26px;
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #003366;
+            font-size: 14px;
+            text-decoration: underline;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        margin-bottom: 20px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+// .article-close {
+//     position: absolute;
+//     top: 30px;
+//     left: 25px;
+//     font-size: 24px;
+// }
+
+
+// Всплыващее окно обратной связи
+.popup-outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+    overflow: hidden;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    display: none;
+    font-size: 18px;
+}
+
+.popup-form {
+    position: relative;
+    margin: 50px auto 0;
+    width: 290px;
+    padding: 35px 20px 40px;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 11px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 11px 0px rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 11px 0px rgba(0,0,0,0.5);
+    display: none;
+    opacity: 0;
+
+    @media(min-width: $tablet-min) {
+        width: 480px;
+        // margin-left: -298px;
+        // margin-top: -223px;
+        // padding-top: 70px;
+        // padding-bottom: 60px;
+
+        &__title {
+            font-size: 1.5em;
+        }
+    }
+
+    @media(min-width: $desktop-min) {
+        height: auto;
+
+        .section-stripe {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__title {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &__field {
+        display: block;
+        width: 100%;
+        max-width: 370px;
+        border: 2px solid #99cc33;
+        border-radius: 6px;
+        padding: 10px;
+        margin: 0 auto 25px;
+        outline: none;
+        cursor: pointer;
+
+        @media (min-width: $tablet-min) {
+            padding: 13px;
+        }
+
+        &:focus {
+            border-color: #2f8c00;
+        }
+    }
+
+    & .popup-form__btn {
+        background: #fff;
+        color: #003366;
+        border: 2px solid #003366;
+        width: 100%;
+        max-width: 370px;
+        padding: 10px;
+        font: bold 20px "Century Gothic", sans-serif;
+        cursor: pointer;
+        outline: none;
+
+        @media (min-width: $tablet-min) {
+            padding: 13px;
+        }
+    }
+    
+    & .popup-form__callback {
+        width: 100%;
+        clear: both;
+    }
+
+    &__consult {
+        padding: 30px 20px;
+        max-height: 480px;
+
+        @media (min-width: $tablet-min) {
+            padding-top: 46px;
+            max-height: 595px;
+        }
+
+        @media (min-width: $desktop-min) {
+            min-height: 410px;
+            height: 450px;
+            height: 68vh;
+            max-height: 530px;
+            width: 480px;
+            font-size: 26px;
+            font-size: 2vh;
+
+            & .section-stripe {
+                margin-bottom: 20px;
+            }
+
+            input {
+                font-size: 1.15em;
+                padding: 8px;
+                padding: 1.6vh;
+                max-height: 52px;
+            }
+        }
+
+        & .popup-form__field {
+            margin-bottom: 18px;
+        }
+
+        textarea {
+            height: 130px; 
+
+            @media (min-width: $desktop-min) {
+                font-size: 1.15em;
+                padding: 8px;
+                padding: 1.6vh;
+                height: 120px;
+                height: 15vh;
+                max-height: 150px;
+
+            }
+        }
+    }
+
+
+}
+
+.popup-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    color: #d4d4d4;
+    cursor: pointer;
+
+    @media(min-width: $tablet-min) {
+        top: 20px;
+        right: 25px;
+        font-size: 25px;
     }
 }

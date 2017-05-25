@@ -11,8 +11,8 @@
         position: relative;
 
         img {
-            width: 110%;
-            height: 110%;
+            width: 100%;
+            max-width: 100%;
         }
 
         &-logo {
@@ -72,6 +72,7 @@
 
             img {
                 width: 160%;
+                max-width: 170%;
                 height: 100%;
                 margin-left: -76px;
             }

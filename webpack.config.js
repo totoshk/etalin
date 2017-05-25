@@ -4,7 +4,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 let isProd = process.env.NODE_ENV === 'production';
-console.log('Node env is', process.env.NODE_ENV, 'production');
 const cssDev = [
                     'style-loader?convertToAbsoluteUrls',
                     'css-loader?sourceMap=true',
@@ -77,6 +76,14 @@ module.exports = {
             {
                 test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
                 use: 'file-loader?name=fonts/[name].[ext]'
+            },
+            {
+                test: /\.(pdf)(\?[a-z0-9]+)?$/,
+                use: 'file-loader?name=pdf/[name].[ext]'
+            },
+            {
+                test: /\.(php)(\?[a-z0-9]+)?$/,
+                use: 'file-loader?name=php/[name].[ext]'
             }
         ]
     },
@@ -89,7 +96,13 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './app/pug/index.pug',
+            hash: true
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'led-in-office.html',
+            template: './app/pug/led-in-office.pug',
             hash: true
         }),
         new ExtractTextPlugin({

@@ -41,14 +41,18 @@ section#calculator.calculator
 				input(type="number",
 						name="tisLampQty",
 						placeholder="Введите целое число",
+						min="1",
+						value="1",
 						required,
 						pattern="^\d+$").calculator-form__field.calculator-form__field-text#tisLampQty
 				p.calculator-form__label Тариф, тенге/кВт
-				input(type="text",
+				input(type="number",
 						name="electricityTariff",
 						placeholder="Введите число",
 						required,
-						pattern="[0-9]+(\.[0-9]{0,2})?").calculator-form__field.calculator-form__field-text#electricityTariff
+						min="0",
+						pattern="[0-9]+(\.[0-9]{0,2})?"
+						step="any").calculator-form__field.calculator-form__field-text#electricityTariff
 
 			.calculator-form--right
 				.calculator__header Выберите вариант замены на LED освещение
@@ -81,4 +85,4 @@ section#calculator.calculator
 			.calculator__results-field.calculator__results-month 7 месяцев
 		
 		
-		.btn.calculator__btn Заказать консультацию
+		a(href="#").btn.calculator__btn#consultationCall Заказать консультацию

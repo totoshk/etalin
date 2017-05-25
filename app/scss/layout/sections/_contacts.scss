@@ -65,14 +65,12 @@
             width: 100%;
             padding: 10px 15px;
             margin-bottom: 20px;
-            color: #a2a2a2;
             border: 2px solid #40be00;
             border-radius: 10px;
             font: normal 18px "Century Gothic", sans-serif;
 
             &:focus {
-                border: 2px solid #2f8c00;
-                border-radius: 10px;
+                border-color: #2f8c00;
                 outline: none;
                 color: #000;
             }
