@@ -49,89 +49,65 @@ initSelect($('#bulbTypeSelect'));
 
 let tisLamps = [
 		{
-			name: "ЛПО 0,6м 2*18",
-			bulbPower: 18,
-			bulbQty: 2,
-			lampPower: 36,
+			name: "Прожектор МГЛ, 100Вт",
+			bulbPower: 100,
+			bulbQty: 1,
+			lampPower: 120,
 			article: "",
-			type: "Люминисцентная",
-			lifeTime: 2000,
-			lampCost: 300,
-			imgSrc: require("../images/calculator/lpo-two-small.jpg"),
+			type: "Металлогалогенная",
+			lifeTime: 8000,
+			lampCost: 2300,
+			imgSrc: require("../images/calculator/mgl.jpg"),
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "L-420-Line-0,6M-16-5K",
-						lampPower: 16,
+						name: "441-LED-FL-20-6K",
+						lampPower: 20,
 						lifeTime: 30000,
-						lampCost: 1260,
-						imgSrc: require("../images/calculator/led-line-one.jpg")
-					},
-					{
-						type: "led",
-						name: "L-422-TRI-P-0,6-18-5K",
-						lampPower: 18,
-						lifeTime: 30000,
-						lampCost: 2700,
-						imgSrc: require("../images/calculator/led-line-two.jpg")
+						lampCost: 3300,
+						imgSrc: require("../images/calculator/441-LED-FL-20-6K.png")
 					}
 				]
 		},
 		{
-			name: "ЛПО 1,2м 2*36",
-			bulbPower: 36,
-			bulbQty: 2,
-			lampPower: 72,
+			name: "Прожектор МГЛ, 150Вт",
+			bulbPower: 150,
+			bulbQty: 1,
+			lampPower: 180,
 			article: "",
-			type: "Люминисцентная",
-			lifeTime: 2000,
-			lampCost: 500,
-			imgSrc: require("../images/calculator/lpo-two-big.jpg"),
+			type: "Металлогалогенная",
+			lifeTime: 8000,
+			lampCost: 2500,
+			imgSrc: require("../images/calculator/mgl.jpg"),
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "L-421-Line-1,2M-32-5K",
-						lampPower: 32,
+						name: "443-LED-FL-30-6K",
+						lampPower: 30,
 						lifeTime: 30000,
-						lampCost: 2100,
-						imgSrc: require("../images/calculator/led-line-one-2.jpg")
-					},
-					{
-						type: "led",
-						name: "L-424-TRI-P-1,2-36-5K",
-						lampPower: 36,
-						lifeTime: 30000,
-						lampCost: 4000,
-						imgSrc: require("../images/calculator/led-line-two-big.jpg")
+						lampCost: 4700,
+						imgSrc: require("../images/calculator/441-LED-FL-20-6K.png")
 					}
 				]
 		},
 		{
-			name: "ЛПО 6060 4*18",
-			bulbPower: 18,
-			bulbQty: 4,
-			lampPower: 72,
+			name: "Прожектор МГЛ, 250Вт",
+			bulbPower: 250,
+			bulbQty: 1,
+			lampPower: 300,
 			article: "",
-			type: "Люминисцентная",
-			lifeTime: 2000,
-			lampCost: 300,
-			imgSrc: require("../images/calculator/lpo-four-small.png"),
+			type: "Металлогалогенная",
+			lifeTime: 8000,
+			lampCost: 3500,
+			imgSrc: require("../images/calculator/mgl.jpg"),
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "L-419-SPL6060-36-5K",
-						lampPower: 36,
+						name: "445-LED-FL-50-6K",
+						lampPower: 50,
 						lifeTime: 30000,
-						lampCost: 5700,
-						imgSrc: require("../images/calculator/L-419-SPL6060-36-5K.png")
-					},
-					{
-						type: "led",
-						name: "L-418-RPL6060-36-5K",
-						lampPower: 36,
-						lifeTime: 30000,
-						lampCost: 3700,
-						imgSrc: require("../images/calculator/led-block-two.png")
+						lampCost: 7100,
+						imgSrc: require("../images/calculator/441-LED-FL-20-6K.png")
 					}
 				]
 		},
@@ -141,7 +117,7 @@ let tisLamps = [
 			bulbQty: 1,
 			lampPower: 150,
 			article: "",
-			type: "Накаливания",
+			type: "Люминисцентная",
 			lifeTime: 1000,
 			lampCost: 150,
 			imgSrc: require("../images/calculator/npp-small.jpg"),
@@ -170,7 +146,7 @@ let tisLamps = [
 			bulbQty: 1,
 			lampPower: 200,
 			article: "",
-			type: "Накаливания",
+			type: "Люминисцентная",
 			lifeTime: 1000,
 			lampCost: 200,
 			imgSrc: require("../images/calculator/npp-small.jpg"),

@@ -8,6 +8,7 @@ import 'owl.carousel';
 import './utils/calculator';
 require('./pdf/Catalog В2В Etalin_el.pdf');
 require('./pdf/Catalog_office_lighting_Etalin_el.pdf');
+require('./pdf/Catalog_industry_lighting_Etalin_el.pdf');
 require('./send.php');
 
 

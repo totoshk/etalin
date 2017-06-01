@@ -91,10 +91,6 @@
 
         &__btn {
             float: left;
-
-            @media(min-width: $desktop-min) {
-                width: 394px;
-            }
         }
     }
 }

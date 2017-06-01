@@ -467,11 +467,12 @@ $select-border: 2px solid #99cc33;
     }
 
     &__image {
-        width: 40%;
-        overflow: hidden;
+        width: 41.8%;
+        line-height: 150px;
 
         img {
-            max-width: 100%
+            max-width: 100%;
+            vertical-align: middle;
         }
 
         @media(min-width: $desktop-min) {
