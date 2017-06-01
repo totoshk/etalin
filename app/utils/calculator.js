@@ -112,6 +112,48 @@ let tisLamps = [
 				]
 		},
 		{
+			name: "ЛПО 0,6м 2*18 IP65",
+			bulbPower: 18,
+			bulbQty: 1,
+			lampPower: 43.2,
+			article: "",
+			type: "Люминисцентная",
+			lifeTime: 2000,
+			lampCost: 300,
+			imgSrc: require("../images/calculator/ind-lpo-big.jpg"),
+			ledAnalogs: [
+					{
+						type: "led",
+						name: "L-422-TRI-P-0,6-18-5K",
+						lampPower: 18,
+						lifeTime: 30000,
+						lampCost: 2700,
+						imgSrc: require("../images/calculator/led-line-two-big.png")
+					}
+				]
+		},
+		{
+			name: "ЛПО 1,2м 2*36 IP65",
+			bulbPower: 36,
+			bulbQty: 1,
+			lampPower: 86.4,
+			article: "",
+			type: "Люминисцентная",
+			lifeTime: 2000,
+			lampCost: 500,
+			imgSrc: require("../images/calculator/ind-lpo-small.jpg"),
+			ledAnalogs: [
+					{
+						type: "led",
+						name: "L-424-TRI-P-1,2-36-5K",
+						lampPower: 36,
+						lifeTime: 30000,
+						lampCost: 4000,
+						imgSrc: require("../images/calculator/led-line-two-big.png")
+					}
+				]
+		},
+		{
 			name: "НПП 150",
 			bulbPower: 150,
 			bulbQty: 1,
@@ -120,7 +162,7 @@ let tisLamps = [
 			type: "Люминисцентная",
 			lifeTime: 1000,
 			lampCost: 150,
-			imgSrc: require("../images/calculator/npp-small.jpg"),
+			imgSrc: require("../images/calculator/npp-big-ind.jpg"),
 			ledAnalogs: [
 					{
 						type: "led",
@@ -149,7 +191,7 @@ let tisLamps = [
 			type: "Люминисцентная",
 			lifeTime: 1000,
 			lampCost: 200,
-			imgSrc: require("../images/calculator/npp-small.jpg"),
+			imgSrc: require("../images/calculator/npp-big-ind.jpg"),
 			ledAnalogs: [
 					{
 						type: "led",
@@ -168,7 +210,8 @@ let tisLamps = [
 						imgSrc: require("../images/calculator/409-LED-OLL-15-6K.png")
 					}
 				]
-		},
+		}
+		
 	];
 
 	const chosenLamps = {
