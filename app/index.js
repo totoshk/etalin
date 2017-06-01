@@ -6,7 +6,7 @@ require('./scss/index.scss');
 import './waypoints/lib/jquery.waypoints.js';
 import 'owl.carousel';
 import './utils/calculator';
-require('./pdf/Catalog В2В Etalin_el.pdf');
+require('./pdf/Catalog_Etalin_el.pdf');
 require('./pdf/Catalog_office_lighting_Etalin_el.pdf');
 require('./send.php');
 
