@@ -19,7 +19,7 @@
 		background-size: cover;
 		background-position: center center;
 
-        &--first {
+        &--second {
             background-image: url('../images/industry-bg-1-mobile.jpg');
             @media (min-width: $tablet-min) {
                 background-image: url('../images/industry-bg-1-tablet.jpg');
@@ -29,7 +29,7 @@
             }
         }
 
-        &--second {
+        &--first {
             background-image: url('../images/industry-bg-2-mobile.jpg');
             @media (min-width: $tablet-min) {
                 background-image: url('../images/industry-bg-2-tablet.jpg');
