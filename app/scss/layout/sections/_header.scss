@@ -14,18 +14,33 @@
 	}
 	
 	.owl-slide {
-		background-image: url('../images/bg-3.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center center;
 
-        @media (min-width: $tablet-min) {
-            background-image: url('../images/bg-2.jpg');
-        }
+        &--first {
+            background-image: url('../images/indoor-bg-1-mobile.jpg');
 
-        @media (min-width: $desktop-min) {
-            background-image: url('../images/bg-1.jpg');
+            @media (min-width: $tablet-min) {
+                background-image: url('../images/indoor-bg-1-tablet.jpg');
+            }
+
+            @media (min-width: $desktop-min) {
+                background-image: url('../images/indoor-bg-1.jpg');
+            }
         }
+        &--second {
+            background-image: url('../images/indoor-bg-2-mobile.jpg');
+
+            @media (min-width: $tablet-min) {
+                background-image: url('../images/indoor-bg-2-tablet.jpg');
+            }
+
+            @media (min-width: $desktop-min) {
+                background-image: url('../images/indoor-bg-2.jpg');
+            }
+        }
+        
 	}
 	.owl-dots {
         position: absolute;

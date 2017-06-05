@@ -7,7 +7,7 @@ import './waypoints/lib/jquery.waypoints.js';
 import 'owl.carousel';
 import './utils/calculator';
 require('./pdf/Catalog_Etalin_el.pdf');
-require('./pdf/Catalog_office_lighting_Etalin_el.pdf');
+require('./pdf/Eurolight_el.pdf');
 require('./send.php');
 
 
@@ -15,7 +15,7 @@ $(function () {
 	$('.owl-header-carousel').owlCarousel({
 		loop: true,
 		autoplay: true,
-		autoplayTimeout: 7000,
+		autoplayTimeout: 1500,
 		autoplaySpeed: 2000,
 		nav : false, 
 		// slideSpeed : 3000,

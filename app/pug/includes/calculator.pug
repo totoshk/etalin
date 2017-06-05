@@ -15,8 +15,9 @@ section#calculator.calculator
 					.select#bulbTypeSelect
 						.select-styled Выбрать из списка
 						ul.select-options#tisBulbType
-							li(rel="Люминисцентная") Люминисцентная
+							li(rel="Галогенная") Галогенная
 							li(rel="Накаливания") Накаливания
+							li(rel="Накаливания") Экономка
 					
 				.calculator__form-group.calculator__form-group--right
 					p.calculator-form__label Тип светильника
@@ -83,6 +84,29 @@ section#calculator.calculator
 			.calculator__results-title.
 				Светодиодные светильники Etalin окупятся через
 			.calculator__results-field.calculator__results-month 7 месяцев
+		.calculator__economy.clearfix
+			p.calculator__economy -title Использование светодиодного освещения Etalin позволит сэкономить сумму, которой хватит на:
+			.calculator__economy-item
+				.calculator__economy-image
+					img(src='../images/gas-icon.png')
+				.calculator__economy-counter.calculator__economy-counter-gas 5
+				.calculator__economy-description литров АИ95
+			.calculator__economy-item
+				.calculator__economy-image
+					img(src='../images/camera-icon.png')
+				.calculator__economy-counter.calculator__economy-counter-movie 5
+				.calculator__economy-description походов в кино
+			.calculator__economy-item
+				.calculator__economy-image
+					img(src='../images/microphone-icon.png')
+				.calculator__economy-counter.calculator__economy-counter-karaoke 5
+				.calculator__economy-description часов в караоке
+			.calculator__economy-item
+				.calculator__economy-image
+					img(src='../images/cart-icon.png')
+				.calculator__economy-counter.calculator__economy-counter-shop 5
+				.calculator__economy-description походов в магазин
+
 		
 		
 		a(href="#").btn.calculator__btn#consultationCall Заказать консультацию

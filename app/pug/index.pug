@@ -10,8 +10,8 @@ head
 body
     section.header
         .owl-carousel.owl-header-carousel
-            .owl-slide
-            //- .owl-slide
+            .owl-slide.owl-slide--first
+            .owl-slide.owl-slide--second
         .wrapper
             nav.header-nav.clearfix
                 .container
@@ -46,13 +46,13 @@ body
                             a(href="#")#callback Заказать обратный звонок
             .header-content
                 .container
-                    a(href="../pdf/Catalog_office_lighting_Etalin_el.pdf#page=1" title="Каталог светильников Etalin для офиса" target="_blank").circle-container
+                    a(href="../pdf/Eurolight_el.pdf" title="Каталог светильников Etalin для дома" target="_blank").circle-container
                         .header-content__logo
                             img(src="../images/logo-etalin.png" alt="Etalin освещение")
                         h1.header-content__title Офисное освещение
                         .section-stripe.clearfix
-                        .header-content__tagline Светодиодное освещение - это выгодные и надежные <br> инвестиции в Ваш <br/> бизнес!
-                    a(href="#calculator").btn.header-content__btn.anchor-link Расчет окупаемости
+                        .header-content__tagline Светодиодное освещение - это выгодные и надежные <br> инвестиции в свет!
+                    a(href="#calculator").btn.header-content__btn.anchor-link Узнать сумму экономии
                     .header-content__description Узнайте свою выгоду от перехода на LED и начните экономить уже сегодня!
 
         
@@ -68,39 +68,47 @@ body
                 p Продукция под торговой маркой «Etalin» соответствует основным положениям стандартов ErP и Energystar, полностью адаптирована под электросети РК и имеет все необходимые сертификаты, такие как CE, EAC, UL, FCC, RoHS. Благодаря этому ТОО «ETALIN LIGHTING GROUP KAZAKHSTAN» предоставляет беспрецедентно максимальную гарантию на светодиодную продукцию – от 3 до 5 лет.
                 p Заводы-производители продукции под ТМ Etalin преимущественно расположены на Юго-востоке КНР и доступны для профессиональных инспекций нашими партнерами и сторонними организациями с целью открытого подтверждения высоких стандартов качества производства и комплектующих.
                 p Светодиодное освещение от компании Etalin Lighting – это выгодные инвестиции и надежный свет надолго!
-            a(href="../pdf/Catalog_Etalin_el.pdf" title="" target="_blank").btn.about__btn Скачать полный каталог продукции
+            a(href="http://etalin.kz/catalog/osveshchenie_dlya_doma/svetodiodnye_lampy/" title="" target="_blank").btn.about__btn Смотреть полный каталог продукции
 
     section#technology.technology
         .container
             h2.section-title.clearfix Технология
             .section-stripe
             .technology__image.clearfix
-                img(src="../images/tech.png" alt="")
+                .technology__image-item.technology__image-item--left
+                    a(href="http://etalin.kz/catalog/osveshchenie_dlya_doma/svetodiodnye_lampy/e27_12vt_3000k_svetodiodnaya_lampa_tm_eurolight_eco_matovaya_/", title="")
+                        img(src="../images/indoor-lamp-3.png" alt="")
+                .technology__image-item.technology__image-item--middle
+                    a(href="http://etalin.kz/catalog/osveshchenie_dlya_doma/svetodiodnye_lampy/e14_5vt_3000k_svetodiodnaya_lampa_tm_eurolight_svecha/", title="")
+                        img(src="../images/indoor-lamp-2.png" alt="")
+                .technology__image-item.technology__image-item--right
+                    a(href="http://etalin.kz/catalog/osveshchenie_dlya_doma/svetodiodnye_lampy/e27_6vt_3000k_svetodiodnaya_lampa_tm_eurolight_eco_sharik_matovyy/", title="")
+                        img(src="../images/indoor-lamp-1.png" alt="")
             .technology__advantages.clearfix
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/light-icon.png" alt="")
-                    p Снижение энергопотребления до 90% в сравнении с лампами накаливания и до 60% в сравнении с люминесцентными лампами.
-                .technology__advantages-item
-                    .technology__advantages-item-image
-                        img(src="../images/lamp-icon.png" alt="")
-                    p Стильный и современный дизайн светодиодных светильников лаконично дополнит любой интерьер.
+                    p Сокращение расходов на электроэнергию до 90% по сравнению с лампами накаливания и до 60% по сравнению с “экономками”.
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/eye-icon.png" alt="")
-                    p Повышение производительности труда до 30% за счет равномерного и качественного освещения без бликов и мерцаний.
+                    p Высокий индекс цветопередачи CRI>80. Цвета при светодиодном освещении не искажаются и максимально приближены к естественным.
+                .technology__advantages-item
+                    .technology__advantages-item-image
+                        img(src="../images/lamp-icon.png" alt="")
+                    p Низкая температура нагрева корпуса LED лампы - благодаря чему её можно использовать даже в светильниках, изготовленных из ткани и дерева.
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/clock-icon.png" alt="")
-                    p Длительный срок службы LED-светильников от 30 000 до 100 000 часов.
+                    p Длительный срок службы светодиодных ламп - свыше 25 000 часов, что в 25 раз дольше обычных лампочек. С ТМ Etalin вы забудете, что такое замена ламп! 
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/smile-icon.png" alt="")
-                    p Отсутствие затрат на замену и утилизацию ламп.
+                    p Комфортное освещение благодаря высокому световому потоку и равномерному распределению света.
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/save-icon.png" alt="")
-                    p Срок окупаемости светильников до 1 года!
+                    p Качество LED ламп подтверждено гарантией производителя от 1 года до 5 лет!
             a(href="led-in-office.html" title="" target="_blank").btn.technology__btn#readMore Узнать больше
 
     include includes/calculator.pug

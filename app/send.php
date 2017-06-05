@@ -15,7 +15,7 @@
                         </body>
                     </html>'; //Текст нащего сообщения можно использовать HTML теги
             $headers  = "Content-type: text/html; charset=utf-8 \r\n"; //Кодировка письма
-            $headers .= "From: office.etalin.kz <i@etalin.kz>\r\n"; //Наименование и почта отправителя
+            $headers .= "From: indoor.etalin.kz <i@etalin.kz>\r\n"; //Наименование и почта отправителя
             mail($to, $subject, $message, $headers); //Отправка письма с помощью функции mail
     }
 ?>

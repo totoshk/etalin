@@ -1,12 +1,45 @@
 .technology {
     &__image {
         width: 100%;
+        min-height: 190px;
+        height: 250px;
+        max-height: 250px;
+        height: 100vh;
         text-align: center;
         margin-bottom: 30px;
+        position: relative;
 
         img {
             width: 67%;
         }
+
+        &-item {
+                width: 45%;
+                position: absolute;
+
+                &--left {
+                    top: 0;
+                    left: -10px;
+                }
+
+                &--middle {
+                    top: 20px;
+                    left: 88px;
+
+                    img {
+                        width: 60%;
+                    }
+                }
+
+                &--right {
+                    bottom: 15px;
+                    right: -10px;
+
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
     }
 
     &__advantages {
@@ -28,11 +61,28 @@
     
     @media(min-width: $tablet-min) {
         &__image {
+            width: 65%;
+            margin: 0 auto;
             margin-bottom: 35px;
 
             img {
                 width: 55%;
-                margin-left: 98px;
+                margin-left: 0;
+            }
+
+            &-item {
+                &--left {
+                    left: 0;
+                }
+
+                &--middle {
+                    top: 20px;
+                    left: 28%;
+
+                    img {
+                        width: 45%;
+                    }
+                }
             }
         }
 
@@ -61,10 +111,37 @@
         &__image {
             float: right;
             width: 31%;
-
+            height: 535px;
+            max-height: 535px;
+            
             img {
-                width: 107%;
-                margin-left: -10px;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            &-item {
+                &--left {
+                    top: 70px;
+                    left: -20px;
+                }
+
+                &--middle {
+                    top: 166px;
+                    left: 92px;
+
+                    img {
+                        width: 70%;
+                    }
+                }
+
+                &--right {
+                    bottom: 0;
+                    right: -8px;
+
+                    img {
+                        width: 80%;
+                    }
+                }
             }
         }
 
