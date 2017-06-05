@@ -50,9 +50,9 @@ initSelect($('#bulbTypeSelect'));
 let tisLamps = [
 		{
 			name: "Галогенная лампа, 35 Вт",
-			bulbPower: 25,
+			bulbPower: 35,
 			bulbQty: 1,
-			lampPower: 25,
+			lampPower: 35,
 			article: "",
 			type: "Галогенная",
 			lifeTime: 1500,
@@ -365,6 +365,15 @@ let tisLamps = [
 		return Math.ceil(recoupment);
 	}
 
+// Считаем на что хватит сэкономленных денег
+	function alternativeSpending (electricityEconomy) {
+		
+
+
+	}
+
+	
+
 	// Подтягиваем список ламп люминисцентных или накаливания в зависимости от выбора пользователя
 	$('#tisBulbType li').on('click', function (e) {
 		resetCalculator();
@@ -423,6 +432,16 @@ let tisLamps = [
 			$articleBlock.slideDown();
 		});
 	}
+	// Расчитываем и обновляем альтернативные варианты для сэкономленных денег
+	function updateAlternativeVariants (economy) {
+		var block = $('.calculator__economy');
+
+		$('#gas').html(Math.ceil(economy/140));
+		$('#cinema').html(Math.ceil(economy/1200));
+		$('#karaoke').html(Math.ceil(economy/2000));
+		$('#shop').html(Math.ceil(economy/7000));
+		block.slideDown();
+	}
 
 	// Вывод результатов по нажатия на кнопку РАССЧИТАТЬ (т.е. подтверждение формы)
 	$('.calculator-form').on('submit', function(e) {
@@ -435,10 +454,12 @@ let tisLamps = [
 		let electricityTariff = Number($('#electricityTariff').val());
 		let tisLampQty = Number($('#tisLampQty').val());
 		let resultedRecoupment = recoupment(ledLamp, tisLamp, tisLampQty, electricityTariff);
+		let resultedEconomy = electricityEconomy(ledLamp, tisLamp, tisLampQty, electricityTariff);
 		
-		economyResultsBlock.html((''+electricityEconomy(ledLamp, tisLamp, tisLampQty, electricityTariff)).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1&thinsp;') + ' тг');
+		economyResultsBlock.html(((''+resultedEconomy).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1&thinsp;') + ' тг'));
 		recoupmentResultsBlock.html(resultedRecoupment + ' ' + pluralize('месяц, месяца, месяцев', resultedRecoupment));
 		resultsBlock.removeClass('u-hidden');
+		updateAlternativeVariants(resultedEconomy);
 		return false;
 	});
 
@@ -452,6 +473,7 @@ let tisLamps = [
 		$('#ledLampsOptions').html('');
 		resetSelect($('#ledLampSelect'));
 		resetSelect($('#tisLampSelect'));
+		resetAlternativeVariants();
 	}
 
 	function resetSelect ($select) {
@@ -461,5 +483,13 @@ let tisLamps = [
 
 		$styledSelect.html('Выбрать из списка').addClass('disabled');
 		$list.html('');
+	}
+
+	function resetAlternativeVariants () {
+		$('#gas').html(0);
+		$('#cinema').html(0);
+		$('#karaoke').html(0);
+		$('#shop').html(0);
+		$('.calculator__economy').hide();
 	}
 }
