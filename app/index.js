@@ -15,7 +15,7 @@ $(function () {
 	$('.owl-header-carousel').owlCarousel({
 		loop: true,
 		autoplay: true,
-		autoplayTimeout: 1500,
+		autoplayTimeout: 13000,
 		autoplaySpeed: 2000,
 		nav : false, 
 		// slideSpeed : 3000,
