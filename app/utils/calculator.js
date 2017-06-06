@@ -446,7 +446,7 @@ let tisLamps = [
 	// Вывод результатов по нажатия на кнопку РАССЧИТАТЬ (т.е. подтверждение формы)
 	$('.calculator-form').on('submit', function(e) {
 		if (!chosenLamps.tisLamp || !chosenLamps.ledLamp) {
-			alert('Выберите тип ламп');
+			alert('Выберите тип лампы');
 			return false;
 		}
 		let ledLamp = chosenLamps.ledLamp;
