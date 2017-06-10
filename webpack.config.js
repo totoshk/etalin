@@ -2,6 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const glob = require('glob');
+const purifyCSSPlugin = require('purifycss-webpack');
 
 let isProd = process.env.NODE_ENV === 'production';
 const cssDev = [
@@ -116,6 +118,9 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery',
             "window.jQuery": "jquery"
-        })
+        }),
+        // new purifyCSSPlugin({
+        //     paths: glob.sync(path.join(__dirname, 'app/pug/**/*.pug')),
+        // })
     ]
 }

@@ -20,6 +20,7 @@
     &-form {
         text-align: center;
         position: relative;
+        margin-bottom: 40px;
 
         @media(min-width: $desktop-min) {
             text-align: left
@@ -230,7 +231,8 @@
             margin-bottom: 0;
             width: 335px;
             position: absolute;
-            bottom: 72px;
+            bottom: -10px;
+            right: 98px;
             font-size: 28px;
             min-height: 52px;
         }
@@ -405,9 +407,18 @@ $select-border: 2px solid #99cc33;
     top: 22px;
     right: 10px;
   }
-  &:hover {
-    
+  &.one-item {
+
+      &:after {
+          display: none;
+      }
+
+      & .select-options__image {
+          margin: 0 auto;
+
+      }
   }
+
   &:active, &.active {
     border: 2px solid #2f8c00;
     
@@ -466,8 +477,8 @@ $select-border: 2px solid #99cc33;
         @media(min-width: $desktop-min) {
             width: 46.8%;
             text-align: center;
-            max-height: 110px;
-            height: 110px;
+            max-height: 140px;
+            height: 132px;
             line-height: 110px;
 
            

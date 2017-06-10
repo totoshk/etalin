@@ -3,7 +3,7 @@ section#calculator.calculator
 		h2.section-title Калькулятор
 		.section-stripe
 		form.calculator-form.clearfix
-			.calculator-form--left
+			.calculator-form--left.clearfix
 				.calculator__header Какие лампочки вы используете сейчас?
 				//- .calculator__wrapper.clearfix
 				.calculator__form-group--left
@@ -35,9 +35,13 @@ section#calculator.calculator
 						//- .calculator-form__field.calculator-form__options#dropdownListTis
 							.calculator-form__options-title Выбрать из списка
 							.calculator-form__field.calculator-form__options-dropdown#tisLampsOptions
-				.calculator__form-group.calculator__form-group--power
-					p.calculator-form__label Мощность лампы, Вт
-					.calculator-form__field
+					.calculator__form-group
+						p.calculator-form__label Мощность лампы, Вт
+						.select#tisLampPowerSelect
+							.select-styled.disabled Выбрать из списка
+							ul.select-options#tisLampPowerOptions
+								li(rel="lamp1") 6 Вт
+								li(rel="lamp1") 11 Вт
 				p.calculator-form__label Кол-во лампочек, шт
 				input(type="number",
 						name="tisLampQty",
@@ -55,7 +59,7 @@ section#calculator.calculator
 						pattern="[0-9]+(\.[0-9]{0,2})?"
 						step="any").calculator-form__field.calculator-form__field-text#electricityTariff
 
-			.calculator-form--right
+			.calculator-form--right.clearfix
 				.calculator__header Выберите вариант замены на LED освещение
 				.calculator__form-group.clearfix
 					p.calculator-form__label Тип LED лампы
@@ -73,9 +77,9 @@ section#calculator.calculator
 									img(src="../images/calculator/409-LED-OLL-15-6K.png", alt="lamp")
 								.select-options__price 27000 тг
 				.calculator__form-group.calculator__form-group--article
-					p.calculator-form__label Артикул
+					p.calculator-form__label Мощность, Вт
 					.calculator-form__field.calculator-form__field-code#ledLampName
-				input(type="submit" value="Рассчитать").btn.calculator__form-btn#calculateBtn
+			input(type="submit" value="Рассчитать").btn.calculator__form-btn#calculateBtn
 		
 		.calculator__results.clearfix.u-hidden
 			.calculator__results-title.

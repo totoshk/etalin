@@ -5,24 +5,33 @@ function initSelect ($select) {
 	var $listItems = $list.children('li');
 	$styledSelect.removeClass('disabled');
 	$styledSelect.unbind('click');
-	$styledSelect.click(function(e) {
-		e.stopPropagation();
-		$('div.select-styled.active').not(this).each(function(){
-			$(this).removeClass('active').next('ul.select-options').hide();
-		});
-		$(this).toggleClass('active').next('ul.select-options').toggle();
-	});
 	$listItems.unbind('click');
-	$listItems.click(function(e) {
-		e.stopPropagation();
-		$styledSelect.html($(this).html()).attr('rel', $(this).attr('rel')).removeClass('active');
-		$list.hide();
-	});
+	if ($listItems.length > 1) {
+		$styledSelect.click(function(e) {
+			e.stopPropagation();
+			$('div.select-styled.active').not(this).each(function(){
+				$(this).removeClass('active').next('ul.select-options').hide();
+			});
+			$(this).toggleClass('active').next('ul.select-options').toggle();
+		});
+		
+		$listItems.click(function(e) {
+			e.stopPropagation();
+			$styledSelect.html($(this).html()).attr('rel', $(this).attr('rel')).removeClass('active');
+			$list.hide();
+		});
 
-	$(document).click(function() {
-		$styledSelect.removeClass('active');
+		$(document).click(function() {
+			$styledSelect.removeClass('active');
+			$list.hide();
+		});
+	} else {
+		$styledSelect.html($listItems.html())
+					 .attr('rel', $listItems.attr('rel'))
+					 .removeClass('active')
+					 .addClass('one-item');
 		$list.hide();
-	});
+	}
 }
 
 function pluralize(format, count) {
@@ -61,7 +70,7 @@ let tisLamps = [
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "LED MR16",
+						name: "LED MR16 4 Вт",
 						lampPower: 4,
 						lifeTime: 25000,
 						lampCost: 600,
@@ -82,7 +91,7 @@ let tisLamps = [
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "LED MR16",
+						name: "LED MR16 6 Вт",
 						lampPower: 6,
 						lifeTime: 25000,
 						lampCost: 600,
@@ -103,7 +112,7 @@ let tisLamps = [
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "LED C37, G45",
+						name: "LED C37, G45 6 Вт",
 						lampPower: 6,
 						lifeTime: 25000,
 						lampCost: 600,
@@ -124,7 +133,7 @@ let tisLamps = [
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "LED C37, G45",
+						name: "LED C37, G45 6 Вт",
 						lampPower: 6,
 						lifeTime: 25000,
 						lampCost: 600,
@@ -229,7 +238,7 @@ let tisLamps = [
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "LED C37, G45",
+						name: "LED C37, G45 6 Вт",
 						lampPower: 6,
 						lifeTime: 25000,
 						lampCost: 600,
@@ -250,7 +259,7 @@ let tisLamps = [
 			ledAnalogs: [
 					{
 						type: "led",
-						name: "LED C37, G45",
+						name: "LED C37, G45 6 Вт",
 						lampPower: 6,
 						lifeTime: 25000,
 						lampCost: 600,
@@ -385,25 +394,40 @@ let tisLamps = [
 	// Формируется список вариантов ламп
 	function updateLampsOptions (lampsArr) {
 		let tisLampTypeSelect = $('#tisLampsOptions');
-		let html = '';
+		let lamp = lampsArr[0];
+		let html = `<li data-lamp='${JSON.stringify(lamp)}' rel='${lamp.name}'>
+							<div class="select-options__image">
+								<img src="${lamp.imgSrc}" alt="${lamp.name}">
+							</div>
+						</li>`;
+		tisLampTypeSelect.html(html);
+		// формируем список доступных мощностей
+		let powersHtml = '';
 		lampsArr.forEach(function (lamp, index) {
-			html += `<li data-lamp='${JSON.stringify(lamp)}' rel='${lamp.name}'>
-						<p class="select-options__name">${lamp.name}</p>
-						<div class="select-options__image">
-							<img src="${lamp.imgSrc}" alt="${lamp.name}">
-						</div>
-					</li>`;
+			powersHtml +=  `<li data-lamp='${JSON.stringify(lamp)}' rel='${lamp.name}'>
+								${lamp.lampPower}
+							</li>`;
 		});
 
-		tisLampTypeSelect.html(html);
-
 		initSelect($('#tisLampSelect'));
+		updateLampsPowerOptions (lampsArr);
+	}
 
-		tisLampTypeSelect.children('li').on('click', function (e) {
+	function updateLampsPowerOptions (lampsArr) {
+		var powerOptions = $('#tisLampPowerOptions');
+		let html = '';
+		lampsArr.forEach(function (lamp, index) {
+			html +=  `<li data-lamp='${JSON.stringify(lamp)}' rel='${lamp.name}'>
+								${lamp.lampPower}
+							</li>`;
+		});
+		powerOptions.html(html);
+		initSelect($('#tisLampPowerSelect'));
+
+		powerOptions.children('li').on('click', function (e) {
 			let lamp = JSON.parse(this.dataset.lamp);
 			updateLedLampsOptions(lamp);
 			chosenLamps.tisLamp = lamp;
-			console.log('here 2');
 		});
 	}
 	// Формируетс список аналогов ламп LED, на основе выбора не лед лампы
@@ -421,16 +445,21 @@ let tisLamps = [
 
 		ledLampTypeSelect.html(html);
 		initSelect($('#ledLampSelect'));
-		calcFormLampPower.find('.calculator-form__field').html(tisLamp.bulbPower);
-		calcFormLampPower.slideDown();
-
-		ledLampTypeSelect.children('li').on('click', function (e) {
-			let lamp = JSON.parse(this.dataset.lamp);
+		if (tisLamp.ledAnalogs.length === 1) {
+			let lamp = tisLamp.ledAnalogs[0];
 			chosenLamps.ledLamp = lamp;
 			let $articleBlock = 	$('.calculator__form-group--article');
 			$articleBlock.find('#ledLampName').html(lamp.name);
 			$articleBlock.slideDown();
-		});
+		} else {
+			ledLampTypeSelect.children('li').on('click', function (e) {
+				let lamp = JSON.parse(this.dataset.lamp);
+				chosenLamps.ledLamp = lamp;
+				let $articleBlock = 	$('.calculator__form-group--article');
+				$articleBlock.find('#ledLampName').html(lamp.name);
+				$articleBlock.slideDown();
+			});
+		}
 	}
 	// Расчитываем и обновляем альтернативные варианты для сэкономленных денег
 	function updateAlternativeVariants (economy) {
@@ -473,6 +502,7 @@ let tisLamps = [
 		$('#ledLampsOptions').html('');
 		resetSelect($('#ledLampSelect'));
 		resetSelect($('#tisLampSelect'));
+		resetSelect($('#tisLampPowerSelect'));
 		resetAlternativeVariants();
 	}
 
