@@ -14,18 +14,48 @@
 	}
 	
 	.owl-slide {
-		background-image: url('../images/bg-3.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center center;
 
-        @media (min-width: $tablet-min) {
-            background-image: url('../images/bg-2.jpg');
+        &__first {
+            background-image: url('../images/greenhouse-bg-1-mob.jpg');
+
+            @media (min-width: $tablet-min) {
+                background-image: url('../images/greenhouse-bg-1-tablet.jpg');
+            }
+
+            @media (min-width: $desktop-min) {
+                background-image: url('../images/greenhouse-bg-1.jpg');
+            }
         }
 
-        @media (min-width: $desktop-min) {
-            background-image: url('../images/bg-1.jpg');
+        &__second {
+            background-image: url('../images/greenhouse-bg-2-mob.jpg');
+
+            @media (min-width: $tablet-min) {
+                background-image: url('../images/greenhouse-bg-2-tablet.jpg');
+            }
+
+            @media (min-width: $desktop-min) {
+                background-image: url('../images/greenhouse-bg-2.jpg');
+            }
         }
+
+        &__third {
+            background-image: url('../images/greenhouse-bg-3-mob.jpg');
+
+            @media (min-width: $tablet-min) {
+                background-image: url('../images/greenhouse-bg-3-tablet.jpg');
+            }
+
+            @media (min-width: $desktop-min) {
+                background-image: url('../images/greenhouse-bg-3.jpg');
+            }
+        }
+        
+
+        
 	}
 	.owl-dots {
         position: absolute;

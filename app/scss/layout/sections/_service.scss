@@ -1,0 +1,18 @@
+.service {
+    .about__image{
+        height: 538px;
+        max-height: 540px;
+        
+        img {
+            @media(min-width: $desktop-min) {
+                width: 100%;
+                height: auto;
+                margin-left: 0;
+            }
+        }
+    }
+
+    .about__info {
+        margin-bottom: 40px;
+    }
+}
