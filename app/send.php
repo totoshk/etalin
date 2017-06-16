@@ -10,12 +10,13 @@
                         <body>
                             <p>Имя: '.$_POST['name'].'</p>
                             <p>Телефон: '.$_POST['phone'].'</p>
+                            <p>Название компании: '.$_POST['company-name'].'</p>
                             <p>E-mail: '.$_POST['email'].'</p>
-                            <p>Сообщение: '.$_POST['message'].'</p>
+                            <p>Данные о проекте: '.$_POST['message'].'</p>
                         </body>
                     </html>'; //Текст нащего сообщения можно использовать HTML теги
             $headers  = "Content-type: text/html; charset=utf-8 \r\n"; //Кодировка письма
-            $headers .= "From: office.etalin.kz <i@etalin.kz>\r\n"; //Наименование и почта отправителя
+            $headers .= "From: greenhouse.etalin.kz <i@etalin.kz>\r\n"; //Наименование и почта отправителя
             mail($to, $subject, $message, $headers); //Отправка письма с помощью функции mail
     }
 ?>

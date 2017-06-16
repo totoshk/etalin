@@ -53,7 +53,7 @@ body
                         h1.header-content__title Освещение <br> для теплиц
                         .section-stripe.clearfix
                         .header-content__tagline Светодиодное освещение - это выгодные и надежные <br> инвестиции в Ваш <br/> бизнес!
-                    a(href="#calculator").btn.header-content__btn.anchor-link Заказать расчет проекта
+                    a(href="").btn.header-content__btn#servicecall Заказать расчет проекта
                     .header-content__description Узнайте свою выгоду от перехода на LED и начните экономить уже сегодня!
 
         
@@ -199,6 +199,19 @@ body
                 input(type="text" name="name" placeholder="Имя" required pattern=namePattern).popup-form__field
                 input(type="tel" name="phone" placeholder="Телефон" required pattern=phonePattern).popup-form__field
                 textarea(rows="10" cols="5" name="message" placeholder="Сообщение").popup-form__field
+                input(type="submit" value="Отправить").btn.popup-form__btn
+        .popup-form.popup-form__consult#popup-form__service
+            h2.popup-form__title Заказать расчет проекта
+            <i class="fa fa-times popup-close" aria-hidden="true"></i>
+            .section-stripe
+            form(method="post").popup-form__callback.clearfix#form-consult
+                input(type="text" name="name" placeholder="Имя и фамилия" required pattern=namePattern).popup-form__field
+                input(type="text" name="company-name" placeholder="Название компании" required).popup-form__field
+                input(type="tel" name="phone" placeholder="Телефон" required pattern=phonePattern).popup-form__field
+                input(type="email" name="email" placeholder="Email" required pattern=emailPattern).popup-form__field
+                textarea(rows="10" cols="5" name="message" placeholder="Введите данные о проекте").popup-form__field
+                input(type="file" name="download" id="download-file").popup-form__fileloader
+                label(for="download-file").popup-form__label Прикрепить файлы
                 input(type="submit" value="Отправить").btn.popup-form__btn
 
 

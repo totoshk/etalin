@@ -106,6 +106,17 @@ $(document).ready(function() {
 	});
 });
 $(document).ready(function() {
+	$('a#servicecall').click( function (event){
+		event.preventDefault();
+		$('#popup-form__service, .popup-outer')
+			.animate({opacity: 1}, 200,
+				function(){
+					$(this).css('display', 'block');
+				}
+			);
+	});
+});
+$(document).ready(function() {
 	$('a#consultationCall').click( function (event){
 		event.preventDefault();
 		$('.popup-outer, #popup-form__consult')

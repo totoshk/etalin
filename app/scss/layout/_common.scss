@@ -382,3 +382,64 @@ section {
         font-size: 25px;
     }
 }
+
+#popup-form__service{
+
+    max-height:  545px;
+
+    .popup-form__field {
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    textarea {
+        height: 90px;
+    }
+    .popup-form__btn {
+        padding: 6px;
+
+        @media (min-width: $desktop-min) {
+            padding: 10px;
+        }
+    }
+    @media (min-width: $tablet-min) {
+        max-height: 567px;
+
+        .popup-form__field {
+            font-size: 16px;
+        }
+    }
+
+    @media (min-width: $desktop-min) {
+        height: 661px;
+        height: 85vh;
+        max-height: 770px;
+    }
+}
+.popup-form__fileloader{
+    display: none;
+}
+.popup-form__label {
+    display: inline-block;
+    background: url('../images/attach.png') no-repeat 0 0;
+    background-size: 9px;
+    padding-left: 18px;
+    height: 25px;
+    line-height: 19px;
+    margin-left: -40%;
+    margin-bottom: 5px;
+    margin-top: -10px;
+    cursor: pointer;
+    font-size: 13px;
+
+    @media (min-width: $tablet-min) {
+        font-size: 16px;
+        background-size: 13px;
+        height: 35px;
+        line-height: 24px;
+    }
+
+    @media (min-width: $desktop-min) {
+        margin-left: -45%;
+    }
+}
