@@ -1,7 +1,9 @@
 .service {
     .about__image{
-        height: 538px;
-        max-height: 540px;
+        @media (min-width: $desktop-min){
+            height: 538px;
+            max-height: 540px;
+        }
         
         img {
             @media(min-width: $desktop-min) {

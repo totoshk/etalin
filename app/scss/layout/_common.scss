@@ -383,7 +383,7 @@ section {
     }
 }
 
-#popup-form__service{
+#popup-form__service {
 
     max-height:  545px;
 
@@ -411,9 +411,8 @@ section {
     }
 
     @media (min-width: $desktop-min) {
-        height: 661px;
-        height: 85vh;
-        max-height: 770px;
+        height: 605px;
+        max-height: 605px;
     }
 }
 .popup-form__fileloader{
