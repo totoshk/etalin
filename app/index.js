@@ -94,51 +94,6 @@ $(function () {
 
 // Всплывающие формы
 
-$(document).ready(function() {
-	$('a#callback').click( function (event){
-		event.preventDefault();
-		$('#popup-form, .popup-outer')
-			.animate({opacity: 1}, 200,
-				function(){
-					$(this).css('display', 'block');
-				}
-			);
-	});
-});
-$(document).ready(function() {
-	$('a#consultationCall').click( function (event){
-		event.preventDefault();
-		$('.popup-outer, #popup-form__consult')
-			.animate({opacity: 1}, 200,
-				function(){
-					$(this).css('display', 'block');
-				}
-			);
-	});
-
-	function hideElement ($elem) {
-		$elem.animate({opacity: 0}, 200, 
-			function(){
-				$(this).css('display', 'none')
-			}
-		);
-	}
-
-	$('.popup-outer').on('click', function(event) {
-		event.stopPropagation();
-		if ($(event.target).is($(this))) {
-			hideElement($(this));
-			hideElement($('.popup-form'));
-			console.log('hello');
-		}
-	});
-
-	$('.popup-close').click(function (event) {
-		hideElement($(this).parent());
-		hideElement($('.popup-outer'));
-	})
-});
-
 $(document).ready(function(){
  
   $('.section-title').waypoint(function(dir) {
@@ -152,43 +107,77 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function() {
+	$('a#callback').click( function (event){
+		event.preventDefault();
+		showElement($('.popup-outer'));
+		showElement($('#popup-form'));
+		
+	});
+
+	$('a#consultationCall').click( function (event){
+		event.preventDefault();
+		showElement($('.popup-outer'));
+		showElement($('#popup-form__consult'));
+	});
+
+	$('.popup-outer').on('click', function(event) {
+		event.stopPropagation();
+		if ($(event.target).is($(this))) {
+			hideElement($(this));
+			hideElement($('.popup-form'));
+		}
+	});
+
+	$('.popup-close').click(function (event) {
+		hideElement($(this).parent());
+		hideElement($('.popup-outer'));
+	})
+});
+
 // Отправка формы
 
 $(document).ready(function() {
-	$("#form-consult").submit(function() { //устанавливаем событие отправки для формы с id=form
-			var form_data = $(this).serialize(); //собераем все данные из формы
-			console.log(form_data);
-			jQuery.ajax({
-				type: "POST", //Метод отправки
-				url: "php/send.php", //путь до php фаила отправителя
-				data: form_data,
-				success: function() {
-					//код в этом блоке выполняется при успешной отправке сообщения
-					console.log('отпавлено в пхп файл')}
-			});
-	});
-	$("#form-callback").submit(function() { //устанавливаем событие отправки для формы с id=form
-			var form_data = $(this).serialize(); //собераем все данные из формы
-			console.log(form_data);
-			jQuery.ajax({
-				type: "POST", //Метод отправки
-				url: "php/send.php", //путь до php фаила отправителя
-				data: form_data,
-				success: function() {
-					//код в этом блоке выполняется при успешной отправке сообщения
-					console.log('отпавлено в пхп файл')}
-			});
-	});
-	$("#form-contacts").submit(function() { //устанавливаем событие отправки для формы с id=form
-			var form_data = $(this).serialize(); //собераем все данные из формы
-			console.log(form_data);
-			jQuery.ajax({
-				type: "POST", //Метод отправки
-				url: "php/send.php", //путь до php фаила отправителя
-				data: form_data,
-				success: function() {
-					//код в этом блоке выполняется при успешной отправке сообщения
-					console.log('отпавлено в пхп файл')}
-			});
-	});
+	$("#form-consult").on('submit', handleFormSubmit);
+	$("#form-callback").on('submit', handleFormSubmit);
+	$("#form-contacts").on('submit', handleFormSubmit);
 });
+
+function handleFormSubmit (e) {
+	e.preventDefault();
+	sendFormData($(this));
+}
+
+function sendFormData ($form) {
+	let formData = $form.serialize(); //собираем все данные из формы
+	jQuery.ajax({
+		type: "POST", //Метод отправки
+		url: "php/send.php", //путь до php файла отправителя
+		data: formData,
+		success: () => {
+			$form[0].reset();
+			hideElement($form.parent('.popup-form'));
+			showElement($('.popup-outer'));
+			showElement($('#popup-form__thanks'));
+		},
+		error: () => {
+			alert('Не удалось отправить запрос. Попробуйте позже.')
+		}
+	});
+}
+
+function hideElement ($elem) {
+	$elem.animate({opacity: 0}, 200, 
+		function(){
+			$(this).css('display', 'none')
+		}
+	);
+}
+
+function showElement ($elem) {
+	$elem.animate({opacity: 1}, 200, 
+		function(){
+			$(this).css('display', 'block')
+		}
+	);
+}
