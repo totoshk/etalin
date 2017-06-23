@@ -365,6 +365,18 @@ section {
         }
     }
 
+    &__thanks {
+        margin-top: 150px;
+        margin-top: 40vh;
+        color: #003366;
+        @media (min-width: $tablet-min) {
+            width: 557px !important;
+        }
+
+        & .popup-form__title {
+            margin-bottom: 20px;
+        }
+    }
 
 }
 
