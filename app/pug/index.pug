@@ -4,14 +4,14 @@ head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Etalin
+    title Уличное освещение Etalin
     
 
 body
     section.header
         .owl-carousel.owl-header-carousel
-            .owl-slide
-            //- .owl-slide
+            .owl-slide.owl-slide--first
+            .owl-slide.owl-slide--second
         .wrapper
             nav.header-nav.clearfix
                 .container
@@ -46,10 +46,10 @@ body
                             a(href="#")#callback Заказать обратный звонок
             .header-content
                 .container
-                    a(href="../pdf/Catalog_office_lighting_Etalin_el.pdf#page=1" title="Каталог светильников Etalin для офиса" target="_blank").circle-container
+                    a(href="../pdf/Catalog_outdoor_lighting_Etalin_el.pdf" title="Каталог светильников Etalin" target="_blank").circle-container
                         .header-content__logo
                             img(src="../images/logo-etalin.png" alt="Etalin освещение")
-                        h1.header-content__title Офисное освещение
+                        h1.header-content__title Уличное освещение
                         .section-stripe.clearfix
                         .header-content__tagline Светодиодное освещение - это выгодные и надежные <br> инвестиции в Ваш <br/> бизнес!
                     a(href="#calculator").btn.header-content__btn.anchor-link Расчет окупаемости
@@ -75,32 +75,32 @@ body
             h2.section-title.clearfix Технология
             .section-stripe
             .technology__image.clearfix
-                img(src="../images/tech.png" alt="")
+                img(src="../images/outdoor.png" alt="")
             .technology__advantages.clearfix
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/light-icon.png" alt="")
-                    p Снижение энергопотребления до 90% в сравнении с лампами накаливания и до 60% в сравнении с люминесцентными лампами.
-                .technology__advantages-item
-                    .technology__advantages-item-image
-                        img(src="../images/lamp-icon.png" alt="")
-                    p Стильный и современный дизайн светодиодных светильников лаконично дополнит любой интерьер.
+                    p Экономия: сокращение расходов на электроэнергию до 60% по сравнению с лампами ДНАТ и МГЛ. Снижение пиковых нагрузок и замедление износа всей электросети в целом.
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/eye-icon.png" alt="")
-                    p Повышение производительности труда до 30% за счет равномерного и качественного освещения без бликов и мерцаний.
+                    p Освещенность: качественное повышение уровня освещенности на улицах города, минимизация количества ДТП и увеличение пропускной способности автодорог.
+                .technology__advantages-item
+                    .technology__advantages-item-image
+                        img(src="../images/safety-icon.png" alt="")
+                    p Безопасность: минимизация опасности перегрузки городских и муниципальных электросетей в момент включения уличного освещения.
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/clock-icon.png" alt="")
-                    p Длительный срок службы LED-светильников от 30 000 до 100 000 часов.
+                    p Долговечность: срок службы LEDсветильников от 60 000 до 100 000 часов. Гарантия до 5 лет!
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/smile-icon.png" alt="")
-                    p Отсутствие затрат на замену и утилизацию ламп.
+                    p Комфорт: отсутствие высотных работ и затрат на замену и утилизацию ламп.
                 .technology__advantages-item
                     .technology__advantages-item-image
                         img(src="../images/save-icon.png" alt="")
-                    p Срок окупаемости светильников до 1 года!
+                    p Окупаемость: срок окупаемости LED светильников до 2 лет!
             a(href="led-in-office.html" title="" target="_blank").btn.technology__btn#readMore Узнать больше
 
     include includes/calculator.pug

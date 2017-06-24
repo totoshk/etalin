@@ -3,9 +3,11 @@
         width: 100%;
         text-align: center;
         margin-bottom: 30px;
+        height: 280px;
 
         img {
-            width: 67%;
+            height: 100%;
+            max-width: 100%;
         }
     }
 
@@ -29,11 +31,7 @@
     @media(min-width: $tablet-min) {
         &__image {
             margin-bottom: 35px;
-
-            img {
-                width: 55%;
-                margin-left: 98px;
-            }
+            height: 560px;
         }
 
         &__advantages {
@@ -61,11 +59,7 @@
         &__image {
             float: right;
             width: 31%;
-
-            img {
-                width: 107%;
-                margin-left: -10px;
-            }
+            height: 600px;
         }
 
         &__advantages {

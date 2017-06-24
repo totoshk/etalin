@@ -340,6 +340,7 @@
 
 		@media(min-width: $desktop-min) {
             float: left;
+            margin-top: 0;
 			margin-bottom: 25px;
             margin-left: 129px;
             width: 335px;
@@ -471,12 +472,13 @@ $select-border: 2px solid #99cc33;
         overflow: hidden;
 
         img {
-            max-width: 100%
+            max-width: 100%;
+            vertical-align: middle;
         }
 
         @media(min-width: $desktop-min) {
             width: 41.8%;
-
+            line-height: 150px;
            
         }
     }
